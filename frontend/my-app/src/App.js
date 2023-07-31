@@ -1,10 +1,10 @@
 import './App.css';
+import MealPlanForm from './components/meal-plan-form/meal-plan-form';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-      </header>
+      <MealPlanForm/>
     </div>
   );
 }
