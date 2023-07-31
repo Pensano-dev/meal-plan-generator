@@ -1,10 +1,10 @@
 import './App.css';
+import MealPlanGenerator from "./components/meal-plan-generator/meal-plan-generator"
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-      </header>
+      <MealPlanGenerator/>
     </div>
   );
 }
