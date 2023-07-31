@@ -32,8 +32,8 @@ function MealPlanForm() {
         <label for="treenuts">Tree nuts (eg. almonds, walnuts, peacans)</label>
         <input type="checkbox" id="wheat" value="wheat"></input>
         <label for="wheat">Wheat</label>
-        <input type="input" id="other" value="other"></input>
-        <label for="other">Other</label>
+        <p>Please input any other intolerances</p>
+        <input type="text" id="other-food-intolerances" name="other-food-intolerance" placeholder="Enter foods here separated by commas" />
 
         <p>Please tick which boxes relate to your current diet</p>
         <input type="checkbox" id="mixed" value="mixed"></input>
@@ -50,7 +50,10 @@ function MealPlanForm() {
         <label for="paleo">Paleo</label>
 
         <p>Are there any foods which you want the mealplan to include? (separate by comma ",")</p>
-        <input></input>
+        <input type="text" id="other-food-include" name="other-food-include" placeholder="Enter foods here separated by commas" />
+
+        <p>Please submit when ready</p>
+        <input type="submit" value="Submit" />
       </form>
     </>
   );
