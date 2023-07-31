@@ -1,8 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import MealPlanForm from '../meal-plan-form/meal-plan-form'
 
 function MealPlanGenerator() {
-  const [checkboxChoices, setCheckboxChoices] = useState([]); 
   const [formData, setFormData] = useState({});
 
   function handleFormChange(event) {
@@ -24,7 +23,6 @@ function MealPlanGenerator() {
       <MealPlanForm onChange={handleFormChange} onSubmit={handleFormSubmit} />
     </div>
   )
-
 }
 
 export default MealPlanGenerator;
