@@ -1,10 +1,10 @@
 import './App.css';
-import MealPlanForm from './components/meal-plan-form/meal-plan-form';
+import MealPlanGenerator from "./components/meal-plan-generator/meal-plan-generator"
 
 function App() {
   return (
     <div className="App">
-      <MealPlanForm/>
+      <MealPlanGenerator/>
     </div>
   );
 }
