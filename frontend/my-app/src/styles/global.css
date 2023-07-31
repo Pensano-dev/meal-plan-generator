@@ -1,0 +1,23 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+.team {
+  display: grid;
+  gap: 1rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 200px 200px 200px;
+  }
+  @media (min-width: 960px) {
+    grid-template-columns: 300px 300px 300px;
+  }
+}
+
+.about {
+  display: grid;
+  background: var(--bg);
+  border-radius: 5px;
+  padding: 1rem;
+}
