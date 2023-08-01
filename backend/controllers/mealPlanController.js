@@ -12,3 +12,5 @@ const generateMealPlan = async (mealInputs) => {
     ]
   })
 }
+
+module.exports = generateMealPlan;
