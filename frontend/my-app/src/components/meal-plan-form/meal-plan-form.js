@@ -49,8 +49,8 @@ function MealPlanForm({ onChange, onSubmit }) {
         <input type="checkbox" id="diet" value="paleo" onChange={onChange}/>
         <label htmlFor="diet">Paleo</label>
 
-        <p>Are there any foods which you want the mealplan to include? (separate by comma ",")</p>
-        <input type="text" id="other-food-include" name="other-food-include" placeholder="Enter foods here separated by commas" onChange={onChange} />
+        <p>Are there any foods which you want the mealplan to include? (separated by comma ",")</p>
+        <input type="text" id="other-food-include" name="other-food-include" placeholder="Enter foods here separated by commas" onChange={onChange} style={{ border: isValid ? '' : '1px solid red' }} />
 
         <p>Please submit when ready</p>
         <button type="submit" onClick={onSubmit}>Submit</button>
@@ -58,5 +58,7 @@ function MealPlanForm({ onChange, onSubmit }) {
     </>
   );
 }
+
+
 
 export default MealPlanForm;
