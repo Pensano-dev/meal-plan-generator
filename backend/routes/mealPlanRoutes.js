@@ -4,4 +4,4 @@ const mealPlanController = require('../controllers/mealPlanController');
 
 router.post('/mealplan', mealPlanController.generateMealPlan);
 
-module.exports = { router };
+module.exports = router;
