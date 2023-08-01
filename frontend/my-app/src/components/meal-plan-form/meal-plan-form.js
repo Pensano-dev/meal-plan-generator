@@ -1,9 +1,23 @@
 function MealPlanForm({ onChange, onSubmit, isValid }) {
+
+  // inline CSS for now but may need to move this out to a separate file if we have more later
+  const requiredStyle = {
+    color: 'red',
+    flex: 1,
+    marginLeft: '5px',
+  };
+
+  const containerStyle = {
+    display: 'flex',
+  };
+
   return (
     <>
     <p>Choose your options:</p>
       <form>
-        <p>Which age group is your meal plan for?</p>
+        <div style={containerStyle}>
+          <p>Which age group is your meal plan for?</p><p style={requiredStyle}>*</p>
+        </div>
         <input type="radio" id="age1" name="age" value="6-24" required onChange={onChange}/>
         <label htmlFor="age">6-24 months</label>
         <input type="radio" id="age2" name="age" value="3-12" onChange={onChange}/>
