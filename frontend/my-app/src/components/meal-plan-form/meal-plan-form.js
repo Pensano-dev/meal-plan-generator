@@ -1,4 +1,4 @@
-function MealPlanForm({ onChange, onSubmit }) {
+function MealPlanForm({ onChange, onSubmit, isValid }) {
   return (
     <>
     <p>Choose your options:</p>
@@ -33,7 +33,7 @@ function MealPlanForm({ onChange, onSubmit }) {
         <input type="checkbox" id="allergies" value="wheat" onChange={onChange}/>
         <label htmlFor="allergies">Wheat</label>
         <p>Please input any other intolerances</p>
-        <input type="text" id="other-food-intolerances" name="other-food-intolerance" placeholder="Enter foods here separated by commas" onChange={onChange}/>
+        <input type="text" id="other-food-intolerances" name="other-food-intolerance" placeholder="Enter foods here separated by commas" onChange={onChange} style={{ border: isValid ? '' : '1px solid red' }} />
 
         <p>Please tick which boxes relate to your current diet</p>
         <input type="checkbox" id="diet" value="mixed" onChange={onChange}/>
