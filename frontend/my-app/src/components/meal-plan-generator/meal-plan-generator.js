@@ -3,6 +3,7 @@ import MealPlanForm from '../meal-plan-form/meal-plan-form';
 
 function MealPlanGenerator() {
   const [formData, setFormData] = useState({});
+  const [isValid, setIsValid] = useState(true);
 
   function handleFormChange(event) {
     const { id, value } = event.target;
@@ -10,10 +11,18 @@ function MealPlanGenerator() {
       ...prevFormData,
       [id]: value,
     }));
+
+    const regex = /^(\w+\s*,\s*)*\w+$/;
+    setIsValid(regex.test(value));
   }
 
   function handleFormSubmit(event) {
     event.preventDefault();
+
+    if(!isValid) {
+      alert('Invalid input format. Please enter words separated by a comma and a space.');
+      return;
+    }
 
     fetch('/api/mealplan', {
       method: 'POST',
@@ -34,7 +43,7 @@ function MealPlanGenerator() {
   return (
     <div>
       <h1>Create your Meal Plan</h1>
-      <MealPlanForm onChange={handleFormChange} onSubmit={handleFormSubmit} />
+      <MealPlanForm onChange={handleFormChange} onSubmit={handleFormSubmit} isValid={isValid} />
     </div>
   );
 }
