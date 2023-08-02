@@ -1,3 +1,7 @@
+1. Install dependencies in both backend and frontend folders
+2. Start backend server by running `node server.js` from the backend folder
+3. Start the frontend by running `npm start` from the frontend folder
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
