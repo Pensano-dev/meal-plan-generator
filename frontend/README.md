@@ -1,6 +1,7 @@
-1. Install dependencies in both backend and frontend folders
-2. Start backend server by running `node server.js` from the backend folder
-3. Start the frontend by running `npm start` from the frontend folder
+1. Install dependencies in both backend and frontend folders by running `npm install` from both folders
+2. Ensure nodemon is installed by running `npm install nodemon --global`
+3. Start backend server by running `nodemon server.js` from the backend folder
+4. Start the frontend by running `npm start` from the frontend folder
 
 # Getting Started with Create React App
 
