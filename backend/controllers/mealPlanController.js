@@ -1,15 +1,14 @@
 const openai = require('../config/openaiConfig');
 
 const mealPlanController = {
-  generateMealPlan: async (req, res) => {
+  generateMealPlan: (req, res) => {
     try {
       const mealInputs = req.body;
       console.log('Here are your meal inputs:', mealInputs);
-
+      res.status(200).json({ message: 'Meal plan generated successfully.' });
       // Your meal plan generation code using OpenAI can go here
       // For now, we're just logging the meal inputs
 
-      res.json({ message: 'Meal plan generated successfully.' });
     } catch (error) {
       console.error('Error:', error);
       res.status(500).json({ error: 'Failed to generate meal plan. Please try again later.' });
@@ -33,7 +32,7 @@ const mealPlanController = {
 
   //   // Extract the chat response from the API response
   //   const chatResponse = response.data?.choices?.[0]?.message?.content || '';
-    
+
   //   return chatResponse;
   // } catch (error) {
   //   console.error('OpenAI API Error:', error);

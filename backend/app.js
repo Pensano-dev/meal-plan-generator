@@ -5,6 +5,7 @@ const cors = require('cors');
 const mealPlanRoutes = require('./routes/mealPlanRoutes');
 
 app.use(bodyParser.json());
+
 app.use(cors());
 
 // Routes
