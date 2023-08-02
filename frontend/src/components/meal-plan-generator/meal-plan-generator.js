@@ -16,7 +16,7 @@ function MealPlanGenerator() {
     setIsValid(regex.test(value));
   }
 
-  function handleFormSubmit(event) {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     if(!isValid) {
@@ -24,21 +24,27 @@ function MealPlanGenerator() {
       return;
     }
 
-    fetch('/api/mealplan', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
+    try {
+      const response = await fetch('http://localhost:8000/api/mealplan', { // when we deploy, we'll change this to the deployed backend URL saved as an ENV variable
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          },
+        body: JSON.stringify(formData),
       });
-  }
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log('Request was successful:', data);
+      } else {
+        console.log('Request was unsuccessful:', data);
+      }
+
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
 
   return (
     <div>
