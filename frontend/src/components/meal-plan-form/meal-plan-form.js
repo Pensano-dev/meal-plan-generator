@@ -1,18 +1,60 @@
+import * as React from 'react'
+import { ChakraProvider, Container, Heading, Button, Box, Divider, Text, Spacer } from '@chakra-ui/react'
+
 function MealPlanForm({ onChange, onSubmit, isValid }) {
 
-  // inline CSS for now but may need to move this out to a separate file if we have more later
-  const requiredStyle = {
-    color: 'red',
-    flex: 1,
-    marginLeft: '5px',
-  };
-
-  const containerStyle = {
-    display: 'flex',
-  };
-
   return (
-    <>
+    <ChakraProvider>
+      <Container textAlign='right' maxW="container.md">
+        <Heading as="h1" size="xl" mb={4} textAlign="center">Weekly meal plan generator</Heading>
+        <Box bg="gray.300" textAlign="justify" borderRadius='2xl' padding={8}>
+          <Text fontSize="lg" color="black" mb={2}>  
+            Welcome to the meal plan generator. 
+          </Text>
+          <Text fontSize="lg" color="black" mb={2}>
+            It generates a personalised 7-day plan that meets your dietary wants and requirements.
+          </Text>
+          <Text fontSize="lg" color="black">
+        Taking into account:
+        </Text>
+        <Text>
+        • your preferences <br />
+        • having three food groups at every meal <br />
+        • the concept of "good fats <br />
+        • the concepts of blood sugar balance (sugar restriction) <br />
+        </Text>
+        <Text fontSize="lg" color="black" mt={2}>
+        All presented for you as a neat plan of three main meals and an optional
+        snack 
+        </Text>
+      </Box>
+
+      <Button bg='#ffb301' mt={8} borderRadius='3xl'>Lets Get Started!</Button>
+         <Divider mt={10} mb={-3}/> 
+      <Box as="button" size='lg' borderRadius='3xl' bg='gray.300' color='gray.600' px={4} position="relative" zIndex="2">User options</Box>
+      
+      </Container>
+      
+    </ChakraProvider> 
+  );
+}
+
+
+
+export default MealPlanForm;
+
+// inline CSS for now but may need to move this out to a separate file if we have more later
+  // const requiredStyle = {
+  //   color: 'red',
+  //   flex: 1,
+  //   marginLeft: '5px',
+  // };
+
+  // const containerStyle = {
+  //   display: 'flex',
+  // };
+
+{/* <> 
     <p>Choose your options:</p>
       <form>
         <div style={containerStyle}>
@@ -69,10 +111,4 @@ function MealPlanForm({ onChange, onSubmit, isValid }) {
         <p>Please submit when ready</p>
         <button type="submit" onClick={onSubmit}>Submit</button>
       </form>
-    </>
-  );
-}
-
-
-
-export default MealPlanForm;
+    </>  */}
