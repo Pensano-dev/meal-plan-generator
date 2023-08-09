@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ChakraProvider, Container, Heading, Button, Box, Divider, Text, Spacer } from '@chakra-ui/react'
+import { ChakraProvider, Container, Heading, Button, Box, Divider, Text, FormControl, FormLabel, RadioGroup, Stack, Radio } from '@chakra-ui/react'
 
 function MealPlanForm({ onChange, onSubmit, isValid }) {
 
@@ -28,10 +28,56 @@ function MealPlanForm({ onChange, onSubmit, isValid }) {
         snack 
         </Text>
       </Box>
-
+      
       <Button bg='#ffb301' mt={8} borderRadius='3xl'>Lets Get Started!</Button>
          <Divider mt={10} mb={-3}/> 
       <Box as="button" size='lg' borderRadius='3xl' bg='gray.300' color='gray.600' px={4} position="relative" zIndex="2">User options</Box>
+      </Container>
+      {/* Form below */}
+      <Container maxW="container.md">
+        <form>
+          <FormControl mb={4}>
+          <Heading>01</Heading> 
+            <FormLabel>What age group is your meal plan for?</FormLabel>
+            <RadioGroup onChange={onChange}>
+              <Stack spacing={4} direction='row'>
+                {/* values need to be double-checked */}
+                <Radio value='infant'>6-24 months</Radio>
+                <Radio value='child'>3-12 years</Radio>
+                <Radio value='adult'>over 12 years</Radio>
+              </Stack>
+            </RadioGroup>
+          </FormControl>
+          <Heading>02</Heading> 
+        <Text>Any food allergies or intolerances?</Text>
+        Other (please separate each food item with a comma",.")
+
+
+          {/* Other form fields go here */}
+
+          {/* Submit button */}
+        </form>
+        <Box mt={8}>
+       
+
+<Heading>03</Heading> 
+<Text>Tick the boxes which apply to you:
+</Text>
+
+Mixed Food Diet
+Paleo
+Low Carb
+Pescetarian
+Any food that you want to include
+(please separate each food item with a comma",.")
+CREATE YOUR MEAL PLAN
+User Options
+Adult
+over 12 years
+oUr
+Vegan
+Vegetarian
+      </Box>
       
       </Container>
       
