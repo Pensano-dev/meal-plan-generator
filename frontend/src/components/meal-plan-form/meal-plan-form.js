@@ -39,7 +39,7 @@ function MealPlanForm({ onChange, onSubmit, isValid }) {
           <Text>
             • your preferences <br />
             • having three food groups at every meal <br />
-            • the concept of "good fats <br />
+            • the concept of "good fats" <br />
             • the concepts of blood sugar balance (sugar restriction) <br />
           </Text>
           <Text fontSize="lg" color="black" mt={2}>
