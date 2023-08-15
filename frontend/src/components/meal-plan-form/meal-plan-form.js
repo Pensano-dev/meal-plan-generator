@@ -49,9 +49,13 @@ function MealPlanForm({ onChange, onSubmit, isValid }) {
           </Text>
         </Box>
 
-        <Button bg="#ffb301" mt={8} borderRadius="3xl">
+        <Text my={8} fontSize="lg" padding="5px" textAlign="center" bg="#cea0e4" borderRadius="3xl">
+        Lets Get Started!
+        </Text>
+
+        {/* <Button bg="#ffb301" mt={8} borderRadius="3xl">
           Lets Get Started!
-        </Button>
+        </Button> */}
         <Divider mt={10} mb={-3} />
         <Box
           as="button"
