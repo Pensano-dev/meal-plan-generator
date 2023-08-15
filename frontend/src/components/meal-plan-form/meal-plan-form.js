@@ -23,7 +23,7 @@ function MealPlanForm({ onChange, onSubmit, isValid }) {
     <ChakraProvider>
       <Container textAlign="right" maxW="container.md">
         <Heading as="h1" size="xl" my={8} textAlign="center">
-          Weekly meal plan generator
+          7-Day Meal Plan Generator
         </Heading>
         <Box bg="gray.300" textAlign="justify" borderRadius="2xl" padding={8}>
           <Text fontSize="lg" color="black" mb={2}>
@@ -37,14 +37,15 @@ function MealPlanForm({ onChange, onSubmit, isValid }) {
             Taking into account:
           </Text>
           <Text>
-            • your preferences <br />
-            • having three food groups at every meal <br />
-            • the concept of "good fats" <br />
-            • the concepts of blood sugar balance (sugar restriction) <br />
+            • age group<br />
+            • food allergies and/or intolerances<br />
+            • dietary preferences <br />
+            • having the three food groups at every meal to support blood sugar balance<br />
+
           </Text>
           <Text fontSize="lg" color="black" mt={2}>
             All presented for you as a neat plan of three main meals and an
-            optional snack
+            optional snack.
           </Text>
         </Box>
 
@@ -107,13 +108,13 @@ function MealPlanForm({ onChange, onSubmit, isValid }) {
           <Heading my={4}>03</Heading>
           <FormLabel mb={4}>Tick the boxes which apply to you:</FormLabel>
           <Flex spacing={6} direction="row" mb={6}>
+            <Checkbox w="200px">Low Carb</Checkbox>
             <Checkbox w="200px">Mixed Food Diet</Checkbox>
             <Checkbox w="200px">Paleo</Checkbox>
-            <Checkbox w="200px">Vegan</Checkbox>
           </Flex>
           <Flex spacing={6} direction="row" mb={6}>
-            <Checkbox w="200px">Low Carb</Checkbox>
-            <Checkbox w="200px">Pescetarian</Checkbox>
+            <Checkbox w="200px">Pescatarian</Checkbox>
+            <Checkbox w="200px">Vegan</Checkbox>
             <Checkbox w="200px">Vegetarian</Checkbox>
           </Flex>
           <Text mb={4}>
