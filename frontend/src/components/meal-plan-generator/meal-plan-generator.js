@@ -48,7 +48,7 @@ function MealPlanGenerator() {
 
   return (
     <div>
-      <h1>Create your Meal Plan</h1>
+      {/* <h1>Create your Meal Plan</h1> */}
       <MealPlanForm onChange={handleFormChange} onSubmit={handleFormSubmit} isValid={isValid} />
     </div>
   );
