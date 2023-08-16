@@ -27,12 +27,10 @@ We work in agile environments, test-driven development, object-oriented programm
 
 To install "react-allergens" using npm:
   ```bash
-  Copy code
   npm install react-allergens
   ```
 To install "react-allergens" using yarn:
   ```bash
-  Copy code
   yarn add react-allergens
   ```
 

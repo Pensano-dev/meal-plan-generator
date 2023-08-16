@@ -1,4 +1,5 @@
 import * as React from "react";
+import "./meal-plan-form.css";
 import {
   EggIcon,
   FishIcon,
@@ -115,62 +116,125 @@ function MealPlanForm({ onChange, onSubmit, isValid }) {
         <FormControl mb={4}>
           <Heading my={4}>02</Heading>
           <FormLabel mb={4}>Any food allergies or intolerances?</FormLabel>
+          <Flex>
+            <ul>
+              <li>
+                <input type="checkbox" id="eggs" />
+                <label
+                  for="eggs"
+                  style={{ display: "flex", alignItems: "center" }}
+                >
+                  <IconComponent
+                    as={EggIcon}
+                    style={{ fontSize: "70px", marginRight: "10px" }}
+                  />
+                  Eggs
+                </label>
+              </li>
+              <li>
+                <input type="checkbox" id="fish" />
+                <label
+                  for="fish"
+                  style={{ display: "flex", alignItems: "center" }}
+                >
+                  <IconComponent
+                    as={FishIcon}
+                    style={{ fontSize: "70px", marginRight: "10px" }}
+                  />
+                  Fish
+                </label>
+              </li>
+              <li>
+                <input type="checkbox" id="milk" />
+                <label
+                  for="milk"
+                  style={{ display: "flex", alignItems: "center" }}
+                >
+                  <IconComponent
+                    as={MilkIcon}
+                    style={{ fontSize: "70px", marginRight: "10px" }}
+                  />
+                  Milk
+                </label>
+              </li>
+              <li>
+                <input type="checkbox" id="peanuts" />
+                <label
+                  for="peanuts"
+                  style={{ display: "flex", alignItems: "center" }}
+                >
+                  <IconComponent
+                    as={PeanutIcon}
+                    style={{ fontSize: "70px", marginRight: "10px" }}
+                  />
+                  Peanuts
+                </label>
+              </li>
+            </ul>
+            
+          </Flex>
+        </FormControl>
+        
+        {/* Checkboxes - Option 2 */}
+        <FormControl mb={4}>
+          <Heading my={4}>02</Heading>
+          <FormLabel mb={4}>Any food allergies or intolerances?</FormLabel>
           <Flex spacing={6} direction="row" mb={6}>
             <Checkbox w="150px">
               <IconComponent
                 as={EggIcon}
-                style={{ fontSize: "70px", marginRight: "10px" }}
+                style={{ fontSize: "70px", marginRight: "50px" }} // Adjust the margin value here
               />
               Eggs
             </Checkbox>
             <Checkbox w="150px">
-              <IconComponent 
-              as={FishIcon} 
-              style={{ fontSize: "70px", marginRight: "10px" }}
+              <IconComponent
+                as={FishIcon}
+                style={{ fontSize: "70px", marginRight: "10px" }}
               />
               Fish
             </Checkbox>
             <Checkbox w="150px">
-              <IconComponent 
-              as={MilkIcon} 
-              style={{ fontSize: "70px", marginRight: "10px" }}
+              <IconComponent
+                as={MilkIcon}
+                style={{ fontSize: "70px", marginRight: "10px" }}
               />
               Milk
             </Checkbox>
             <Checkbox w="150px">
-              <IconComponent 
-              as={PeanutIcon} 
-              style={{ fontSize: "70px", marginRight: "10px" }}
+              <IconComponent
+                as={PeanutIcon}
+                style={{ fontSize: "70px", marginRight: "10px" }}
               />
               Peanuts
             </Checkbox>
           </Flex>
           <Flex spacing={6} direction="row" mb={6}>
             <Checkbox w="150px">
-              <IconComponent 
-              as={SoyaIcon} 
-              style={{ fontSize: "70px", marginRight: "10px" }}
+              <IconComponent
+                as={SoyaIcon}
+                style={{ fontSize: "70px", marginRight: "10px" }}
               />
               Soy
             </Checkbox>
             <Checkbox w="150px">
-              <IconComponent 
-              as={MolluscIcon} 
-              style={{ fontSize: "70px", marginRight: "10px" }}
+              <IconComponent
+                as={MolluscIcon}
+                style={{ fontSize: "70px", marginRight: "10px" }}
               />
               Shellfish
             </Checkbox>
             <Checkbox w="150px">
-              <IconComponent 
-              as={NutsIcon} 
-              style={{ fontSize: "70px", marginRight: "10px" }}
+              <IconComponent
+                as={NutsIcon}
+                style={{ fontSize: "70px", marginRight: "10px" }}
               />
               Tree nuts
             </Checkbox>
             <Checkbox w="150px">
-              <IconComponent 
-              as={GlutenIcon} 
-              style={{ fontSize: "70px", marginRight: "10px" }}
+              <IconComponent
+                as={GlutenIcon}
+                style={{ fontSize: "70px", marginRight: "10px" }}
               />
               Wheat
             </Checkbox>
