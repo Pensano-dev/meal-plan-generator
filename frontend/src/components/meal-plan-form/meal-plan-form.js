@@ -90,18 +90,18 @@ function MealPlanForm({ onChange, onSubmit, isValid }) {
           <Heading my={4}>02</Heading>
           <FormLabel mb={4}>Any food allergies or intolerances?</FormLabel>
           <Flex spacing={6} direction="row" mb={6}>
-            <Checkbox w="150px">Lactose</Checkbox>
-            <Checkbox w="150px">Gluten</Checkbox>
-            <Checkbox w="150px">Wheat</Checkbox>
             <Checkbox w="150px">Eggs</Checkbox>
+            <Checkbox w="150px">Fish</Checkbox>
+            <Checkbox w="150px">Gluten</Checkbox>
+            <Checkbox w="150px">Lactose</Checkbox>
             <Checkbox w="150px">Peanuts</Checkbox>
           </Flex>
           <Flex spacing={6} direction="row" mb={6}>
-            <Checkbox w="150px">Tree nuts</Checkbox>
             <Checkbox w="150px">Soybeans</Checkbox>
             <Checkbox w="150px">Sesame seeds</Checkbox>
             <Checkbox w="150px">Shellfish</Checkbox>
-            <Checkbox w="150px">Fish</Checkbox>
+            <Checkbox w="150px">Tree nuts</Checkbox>
+            <Checkbox w="150px">Wheat</Checkbox>
           </Flex>
           <Text mb={4}>
             Other (please separate each food item with a comma ",")
@@ -132,6 +132,7 @@ function MealPlanForm({ onChange, onSubmit, isValid }) {
             CREATE YOUR MEAL PLAN
           </Button>
         </Center>
+        
       </Container>
     </ChakraProvider>
   );
