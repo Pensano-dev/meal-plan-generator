@@ -19,6 +19,11 @@ import {
 } from "@chakra-ui/react";
 
 function MealPlanForm({ onChange, onSubmit, isValid }) {
+  const [clickCount, setClickCount] = React.useState(0);
+
+  const handleButtonClick = () => {
+    setClickCount(clickCount + 1);
+  };
   return (
     <ChakraProvider>
       <Container textAlign="right" maxW="container.md">
@@ -37,11 +42,14 @@ function MealPlanForm({ onChange, onSubmit, isValid }) {
             Taking into account:
           </Text>
           <Text>
-            • age group<br />
-            • food allergies and/or intolerances<br />
+            • age group
+            <br />
+            • food allergies and/or intolerances
+            <br />
             • dietary preferences <br />
-            • having the three food groups at every meal to support blood sugar balance<br />
-
+            • having the three food groups at every meal to support blood sugar
+            balance
+            <br />
           </Text>
           <Text fontSize="lg" color="black" mt={2}>
             All presented for you as a neat plan of three main meals and an
@@ -49,8 +57,15 @@ function MealPlanForm({ onChange, onSubmit, isValid }) {
           </Text>
         </Box>
 
-        <Text my={8} fontSize="lg" padding="5px" textAlign="center" bg="#cea0e4" borderRadius="3xl">
-        Let's Get Started!
+        <Text
+          my={8}
+          fontSize="lg"
+          padding="5px"
+          textAlign="center"
+          bg="#cea0e4"
+          borderRadius="3xl"
+        >
+          Let's Get Started!
         </Text>
 
         {/* <Button bg="#ffb301" mt={8} borderRadius="3xl">
@@ -128,12 +143,19 @@ function MealPlanForm({ onChange, onSubmit, isValid }) {
           <Input type="text"></Input>
         </FormControl>
         <Center my={10}>
-          <Button bg="#ffb301" borderRadius="3xl">
+          <Button bg="#ffb301" borderRadius="3xl" onClick={handleButtonClick}>
             CREATE YOUR MEAL PLAN
           </Button>
         </Center>
-        
+        {/* DISPLAY MEAL PLAN HERE */}
+        <Center my={10}>
+          <Button bg="#ffb301" borderRadius="3xl" onClick={handleButtonClick}>
+            DOWNLOAD YOUR MEAL PLAN ({clickCount} downloads)
+          </Button>
+        </Center>
+
       </Container>
+
     </ChakraProvider>
   );
 }
