@@ -23,6 +23,19 @@ We work in agile environments, test-driven development, object-oriented programm
   cd ../frontend
   npm install
   ```
+3. Install the "react-allergens" package using the package manager of your choice, such as npm or yarn.
+
+To install "react-allergens" using npm:
+  ```bash
+  Copy code
+  npm install react-allergens
+  ```
+To install "react-allergens" using yarn:
+  ```bash
+  Copy code
+  yarn add react-allergens
+  ```
+
 
 ### Running
 1.  Start the front end in a new terminal session:
