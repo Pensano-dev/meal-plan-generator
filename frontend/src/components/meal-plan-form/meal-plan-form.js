@@ -1,4 +1,16 @@
 import * as React from "react";
+import "./meal-plan-form.css";
+import {
+  EggIcon,
+  FishIcon,
+  MilkIcon,
+  PeanutIcon,
+  SoyaIcon,
+  MolluscIcon,
+  NutsIcon,
+  GlutenIcon,
+} from "react-allergens";
+import { Icon as IconComponent } from "@chakra-ui/react";
 import {
   ChakraProvider,
   Container,
@@ -19,11 +31,16 @@ import {
 } from "@chakra-ui/react";
 
 function MealPlanForm({ onChange, onSubmit, isValid }) {
+  const [clickCount, setClickCount] = React.useState(0);
+
+  const handleButtonClick = () => {
+    setClickCount(clickCount + 1);
+  };
   return (
     <ChakraProvider>
       <Container textAlign="right" maxW="container.md">
         <Heading as="h1" size="xl" my={8} textAlign="center">
-          Weekly meal plan generator
+          7-Day Meal Plan Generator
         </Heading>
         <Box bg="gray.300" textAlign="justify" borderRadius="2xl" padding={8}>
           <Text fontSize="lg" color="black" mb={2}>
@@ -37,20 +54,35 @@ function MealPlanForm({ onChange, onSubmit, isValid }) {
             Taking into account:
           </Text>
           <Text>
-            • your preferences <br />
-            • having three food groups at every meal <br />
-            • the concept of "good fats" <br />
-            • the concepts of blood sugar balance (sugar restriction) <br />
+            • age group
+            <br />
+            • food allergies and/or intolerances
+            <br />
+            • dietary preferences <br />
+            • having the three food groups at every meal to support blood sugar
+            balance
+            <br />
           </Text>
           <Text fontSize="lg" color="black" mt={2}>
             All presented for you as a neat plan of three main meals and an
-            optional snack
+            optional snack.
           </Text>
         </Box>
 
-        <Button bg="#ffb301" mt={8} borderRadius="3xl">
+        <Text
+          my={8}
+          fontSize="lg"
+          padding="5px"
+          textAlign="center"
+          bg="#cea0e4"
+          borderRadius="3xl"
+        >
+          Let's Get Started!
+        </Text>
+
+        {/* <Button bg="#ffb301" mt={8} borderRadius="3xl">
           Lets Get Started!
-        </Button>
+        </Button> */}
         <Divider mt={10} mb={-3} />
         <Box
           as="button"
@@ -84,36 +116,145 @@ function MealPlanForm({ onChange, onSubmit, isValid }) {
         <FormControl mb={4}>
           <Heading my={4}>02</Heading>
           <FormLabel mb={4}>Any food allergies or intolerances?</FormLabel>
+          <Flex>
+            <ul>
+              <li>
+                <input type="checkbox" id="eggs" />
+                <label
+                  for="eggs"
+                  style={{ display: "flex", alignItems: "center" }}
+                >
+                  <IconComponent
+                    as={EggIcon}
+                    style={{ fontSize: "70px", marginRight: "10px" }}
+                  />
+                  Eggs
+                </label>
+              </li>
+              <li>
+                <input type="checkbox" id="fish" />
+                <label
+                  for="fish"
+                  style={{ display: "flex", alignItems: "center" }}
+                >
+                  <IconComponent
+                    as={FishIcon}
+                    style={{ fontSize: "70px", marginRight: "10px" }}
+                  />
+                  Fish
+                </label>
+              </li>
+              <li>
+                <input type="checkbox" id="milk" />
+                <label
+                  for="milk"
+                  style={{ display: "flex", alignItems: "center" }}
+                >
+                  <IconComponent
+                    as={MilkIcon}
+                    style={{ fontSize: "70px", marginRight: "10px" }}
+                  />
+                  Milk
+                </label>
+              </li>
+              <li>
+                <input type="checkbox" id="peanuts" />
+                <label
+                  for="peanuts"
+                  style={{ display: "flex", alignItems: "center" }}
+                >
+                  <IconComponent
+                    as={PeanutIcon}
+                    style={{ fontSize: "70px", marginRight: "10px" }}
+                  />
+                  Peanuts
+                </label>
+              </li>
+            </ul>
+            
+          </Flex>
+        </FormControl>
+        
+        {/* Checkboxes - Option 2 */}
+        <FormControl mb={4}>
+          <Heading my={4}>02</Heading>
+          <FormLabel mb={4}>Any food allergies or intolerances?</FormLabel>
           <Flex spacing={6} direction="row" mb={6}>
-            <Checkbox w="150px">Lactose</Checkbox>
-            <Checkbox w="150px">Gluten</Checkbox>
-            <Checkbox w="150px">Wheat</Checkbox>
-            <Checkbox w="150px">Eggs</Checkbox>
-            <Checkbox w="150px">Peanuts</Checkbox>
+            <Checkbox w="150px">
+              <IconComponent
+                as={EggIcon}
+                style={{ fontSize: "70px", marginRight: "50px" }} // Adjust the margin value here
+              />
+              Eggs
+            </Checkbox>
+            <Checkbox w="150px">
+              <IconComponent
+                as={FishIcon}
+                style={{ fontSize: "70px", marginRight: "10px" }}
+              />
+              Fish
+            </Checkbox>
+            <Checkbox w="150px">
+              <IconComponent
+                as={MilkIcon}
+                style={{ fontSize: "70px", marginRight: "10px" }}
+              />
+              Milk
+            </Checkbox>
+            <Checkbox w="150px">
+              <IconComponent
+                as={PeanutIcon}
+                style={{ fontSize: "70px", marginRight: "10px" }}
+              />
+              Peanuts
+            </Checkbox>
           </Flex>
           <Flex spacing={6} direction="row" mb={6}>
-            <Checkbox w="150px">Tree nuts</Checkbox>
-            <Checkbox w="150px">Soybeans</Checkbox>
-            <Checkbox w="150px">Sesame seeds</Checkbox>
-            <Checkbox w="150px">Shellfish</Checkbox>
-            <Checkbox w="150px">Fish</Checkbox>
+            <Checkbox w="150px">
+              <IconComponent
+                as={SoyaIcon}
+                style={{ fontSize: "70px", marginRight: "10px" }}
+              />
+              Soy
+            </Checkbox>
+            <Checkbox w="150px">
+              <IconComponent
+                as={MolluscIcon}
+                style={{ fontSize: "70px", marginRight: "10px" }}
+              />
+              Shellfish
+            </Checkbox>
+            <Checkbox w="150px">
+              <IconComponent
+                as={NutsIcon}
+                style={{ fontSize: "70px", marginRight: "10px" }}
+              />
+              Tree nuts
+            </Checkbox>
+            <Checkbox w="150px">
+              <IconComponent
+                as={GlutenIcon}
+                style={{ fontSize: "70px", marginRight: "10px" }}
+              />
+              Wheat
+            </Checkbox>
           </Flex>
           <Text mb={4}>
             Other (please separate each food item with a comma ",")
           </Text>
-          <Input type="text"></Input>
+          <Input type="text" />
         </FormControl>
         <FormControl>
           <Heading my={4}>03</Heading>
           <FormLabel mb={4}>Tick the boxes which apply to you:</FormLabel>
           <Flex spacing={6} direction="row" mb={6}>
+            <Checkbox w="200px">Low Carb</Checkbox>
             <Checkbox w="200px">Mixed Food Diet</Checkbox>
             <Checkbox w="200px">Paleo</Checkbox>
-            <Checkbox w="200px">Vegan</Checkbox>
           </Flex>
           <Flex spacing={6} direction="row" mb={6}>
-            <Checkbox w="200px">Low Carb</Checkbox>
-            <Checkbox w="200px">Pescetarian</Checkbox>
+            <Checkbox w="200px">Pescatarian</Checkbox>
+            <Checkbox w="200px">Vegan</Checkbox>
             <Checkbox w="200px">Vegetarian</Checkbox>
           </Flex>
           <Text mb={4}>
@@ -123,9 +264,16 @@ function MealPlanForm({ onChange, onSubmit, isValid }) {
           <Input type="text"></Input>
         </FormControl>
         <Center my={10}>
-          <Button bg="#ffb301" borderRadius="3xl">
+          <Button bg="#ffb301" borderRadius="3xl" onClick={handleButtonClick}>
             CREATE YOUR MEAL PLAN
           </Button>
+        </Center>
+        {/* DISPLAY MEAL PLAN HERE */}
+        <Center my={10}>
+          <Button bg="#ffb301" borderRadius="3xl" onClick={handleButtonClick}>
+            DOWNLOAD YOUR MEAL PLAN
+          </Button>
+          <Text ml={3}>({clickCount} downloads)</Text>
         </Center>
       </Container>
     </ChakraProvider>
