@@ -264,7 +264,8 @@ function MealPlanForm({ onChange, onSubmit, isValid }) {
           <Input type="text"></Input>
         </FormControl>
         <Center my={10}>
-          <Button bg="#ffb301" borderRadius="3xl" onClick={handleButtonClick}>
+          {/* <Button bg="#ffb301" borderRadius="3xl" onClick={handleButtonClick}> */}
+          <Button bg="#ffb301" borderRadius="3xl" onClick={onSubmit}>
             CREATE YOUR MEAL PLAN
           </Button>
         </Center>
