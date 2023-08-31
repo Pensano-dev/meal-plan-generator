@@ -25,17 +25,25 @@ const mealPlanController = {
         messages: [
           {
             role: "system",
-            content: `I am a nutritional therapist. You are an assistant that helps me to generate 7-day meal 
-            plans for my clients. I want the meal plan to be in a table, with the days of the week across the 
-            top and the meals on the left-hand column. The meals should include breakfast, lunch, dinner and 
-            one snack per day. I would like each meal suggestion to include the three food groups of protein, carbohydrates 
-            and healthy fats. Please adapt the meal plan according to the client's characteristics and 
-            preferences.`,
+            content: `I am a nutritional therapist. You are an assistant that 
+            helps me to generate 7-day meal plans for my clients. I want the meal 
+            plan to be on a table, with the days of the week across the top and 
+            the meals on the left-hand column. The meals should include breakfast, 
+            lunch, dinner and one snack per day. I would like each meal suggestion 
+            to include the three food groups of protein, carbohydrates and healthy 
+            fats. Healthy fats include avocado, guacamole dip, salmon, trout, 
+            mackerel, sardines, chia seeds, nuts, boiled eggs, olive oil, coconut 
+            oil (for lightly frying), organic butter, ground flaxseeds, hummus, 
+            and organic milk yoghurt. You should never include processed meats 
+            (like ham, bacon and salami), biscuits, fries, fish fingers, cakes, 
+            sweeteners, desserts, soft drinks, ice cream, alcoholic drinks and 
+            chips. Please adapt the meal plan according to the client's 
+            characteristics and preferences below.`,
           },
         ],
       });
       // 7-day plan, table format, with the days on top, with an optional snack,and each meal should have the three food groups (protein, carbohydrates and healthy fats)
-      console.log('Here are your meal inputs:', mealInputs);
+      console.log("Here are your meal inputs:", mealInputs);
       console.log(response.data.choices[0].message.content);
 
       // Send a response back to the client
