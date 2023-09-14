@@ -33,15 +33,33 @@ To install "react-allergens" using yarn:
   ```bash
   yarn add react-allergens
   ```
+4. Get a ChatGPT API key - you will need it later. If your team does not have one, you will have to sign in to your ChatGPT account, go to the API keys page and click the “Create new secret key” button. This key should not be visible on GitHub, so we will use a .env file to keep it hidden. Publicly exposing your key can result in your account being compromised, which could lead to unexpected charges on your account.   
 
+5. Confirm that `.env` has been added to your `.gitignore` dir
+
+6. Install dotenv:
+```bash
+  npm install dotenv --save
+  ```
+7. Create a `.env` file in the backend dir and add `OPENAI_API_KEY=` followed by your ChatGPT API key. It should look like this:
+  ```
+  PROJECT_API_KEY=3ebf52c0-3ebf52c0
+  ```
 
 ### Running
-1.  Start the front end in a new terminal session:
-
+1.  Start the frontend in a new terminal session:
   ```bash
   cd frontend
   npm start
   ```
-
+2. Start the backend in a new terminal session:
+  ```bash
+  cd backend
+  npm start
+  ```
 You should now be able to open your browser and go to `http://localhost:3000/`
 
+### Resources
+- [MERN Stack: A Comprehensive Guide](https://blog.nextideatech.com/how-to-get-started-with-the-mern-stack-a-comprehensive-guide/)
+- [Keeping your API keys secret with dotenv](https://jonathansoma.com/lede/foundations-2019/classes/apis/keeping-api-keys-secret/)
+- [dotenv](https://www.npmjs.com/package/dotenv)
