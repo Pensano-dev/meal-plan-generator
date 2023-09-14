@@ -36,12 +36,24 @@ To install "react-allergens" using yarn:
 
 
 ### Running
-1.  Start the front end in a new terminal session:
+1.  To start the frontend and backend servers at the same time:
+
+  ```bash
+  cd backend
+  npm start
+  ```
+
+2. To start the frontend only:
 
   ```bash
   cd frontend
   npm start
   ```
 
-You should now be able to open your browser and go to `http://localhost:3000/`
+3. To start the backend only:
+
+  ```bash
+  cd backend
+  npm run server
+  ```
 
