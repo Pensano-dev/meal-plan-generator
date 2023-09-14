@@ -1,3 +1,13 @@
+body, h1, h2, h3, p, ul, li, input, label, button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-family: Arial, sans-serif;
+}
+.meal-plan-form {
+  /* Add background color, font styles, and other global styles here */
+}
+
 ul {
   list-style-type: none;
 }
@@ -25,6 +35,13 @@ label {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  /* Add other container styles here */
 }
 
 /* White */
@@ -56,4 +73,3 @@ label::before {
   background-color: #cea0e4;
   transform: scale(1);
 }
-
