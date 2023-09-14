@@ -11,6 +11,11 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount }) {
     display: "flex",
   };
 
+  const foodAllergies = ["Eggs", "Fish", "Gluten", "Milk", "Peanuts", "Shellfish", "Soy", "Tree nuts"];
+  const ageGroups = ["6-24", "3-12", "12+"];
+  const currentDiets = ["Mixed food diet (animal and vegetable sources)", "Pescetarian", "Low carb", "Vegan", "Vegetarian", "Paleo"];
+  const currentDietValues = ["mixed", "pescatarian", "starch", "vegan", "vegetarian", "paleo"];
+
   return (
     <>
       <h1>Welcome to the 7-Day Meal Plan Generator</h1>
@@ -30,85 +35,31 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount }) {
           <p>Which age group is your meal plan for?</p>
           <p style={requiredStyle}>*</p>
         </div>
-        <input
-          type="radio"
-          id="age1"
-          name="age"
-          value="6-24"
-          required
-          onChange={onChange}
-        />
-        <label htmlFor="age">6-24 months</label>
-        <input
-          type="radio"
-          id="age2"
-          name="age"
-          value="3-12"
-          onChange={onChange}
-        />
-        <label htmlFor="age">3-12 years old</label>
-        <input
-          type="radio"
-          id="age3"
-          name="age"
-          value="12+"
-          onChange={onChange}
-        />
-        <label htmlFor="age">12+ years old</label>
+        {ageGroups.map((age, index) => {
+          return (
+            <div key={index}>
+              <input type="radio" id={`age${index}`} name="age"
+                value={age} required onChange={onChange} />
+              <label htmlFor="age">{age} {age === "6-24" ? "months" : "years old"}</label>
+            </div>
+          );
+        })}
 
         <p>Any food allergies or intolerances?</p>
 
-        <input
-          type="checkbox"
-          id="allergies"
-          value="eggs"
-          onChange={onChange}
-        />
-        <label htmlFor="allergies">Eggs</label>
-        <input
-          type="checkbox"
-          id="allergies"
-          value="fish"
-          onChange={onChange}
-        />
-        <label htmlFor="allergies">Fish</label>
-        <input
-          type="checkbox"
-          id="allergies"
-          value="gluten"
-          onChange={onChange}
-        />
-        <label htmlFor="allergies">Gluten</label>
-        <input
-          type="checkbox"
-          id="allergies"
-          value="milk"
-          onChange={onChange}
-        />
-        <label htmlFor="allergies">Milk</label>
-        <input
-          type="checkbox"
-          id="allergies"
-          value="peanuts"
-          onChange={onChange}
-        />
-        <label htmlFor="allergies">Peanuts</label>
-        <input
-          type="checkbox"
-          id="allergies"
-          value="shellfish"
-          onChange={onChange}
-        />
-        <label htmlFor="allergies">Shellfish</label>
-        <input type="checkbox" id="allergies" value="soy" onChange={onChange} />
-        <label htmlFor="allergies">Soy</label>
-        <input
-          type="checkbox"
-          id="allergies"
-          value="treenuts"
-          onChange={onChange}
-        />
-        <label htmlFor="allergies">Tree nuts</label>
+        {foodAllergies.map((allergy, index) => {
+          return (
+            <div key={index}>
+              <input
+                type="checkbox"
+                id="allergies"
+                value={allergy.toLocaleLowerCase()}
+                onChange={onChange}
+              />
+              <label htmlFor="allergies">{allergy}</label>
+            </div>
+          );
+        })}
 
         <p>Please input any other intolerances</p>
         <input
@@ -121,30 +72,21 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount }) {
         />
 
         <p>Please tick which boxes relate to the person's current diet:</p>
-        <input type="checkbox" id="diet" value="mixed" onChange={onChange} />
-        <label htmlFor="diet">
-          Mixed food diet (animal and vegetable sources)
-        </label>
-        <input
-          type="checkbox"
-          id="diet"
-          value="pescatarian"
-          onChange={onChange}
-        />
-        <label htmlFor="diet">Pescetarian</label>
-        <input type="checkbox" id="diet" value="starch" onChange={onChange} />
-        <label htmlFor="diet">Low carb</label>
-        <input type="checkbox" id="diet" value="vegan" onChange={onChange} />
-        <label htmlFor="diet">Vegan</label>
-        <input
-          type="checkbox"
-          id="diet"
-          value="vegetarian"
-          onChange={onChange}
-        />
-        <label htmlFor="diet">Vegetarian</label>
-        <input type="checkbox" id="diet" value="paleo" onChange={onChange} />
-        <label htmlFor="diet">Paleo</label>
+
+        {currentDiets.map((diet, index) => {
+          return (
+            <div key={index}>
+              <input
+                type="checkbox"
+                id="diet"
+                value={currentDietValues[index]}
+                onChange={onChange}
+              />
+              <label htmlFor="diet">{diet}</label>
+            </div>
+          )
+        }
+        )}
 
         <p>
           Are there any foods which you want the mealplan to include? (separated
