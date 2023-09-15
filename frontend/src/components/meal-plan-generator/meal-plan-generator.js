@@ -15,10 +15,7 @@ function MealPlanGenerator() {
   const [isLoading, setIsLoading] = useState(false);
 
   function handleFormChange(event) {
-    const { id, name, value, type, checked } = event.target;
-    // console.log('event.target is ', event.
-
-
+    const { name, value, type, checked } = event.target;
     if (type === 'checkbox') {
       // Handle checkboxes (e.g., allergies and diets)
       setFormData((prevFormData) => {
