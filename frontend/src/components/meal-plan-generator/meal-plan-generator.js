@@ -15,7 +15,9 @@ function MealPlanGenerator() {
   const [isLoading, setIsLoading] = useState(false);
 
   function handleFormChange(event) {
+    const regex = /^(\w+\s*,\s*)*\w+$/;
     const { name, value, type, checked } = event.target;
+    let textValue = value;
     if (type === 'checkbox') {
       // Handle checkboxes (e.g., allergies and diets)
       setFormData((prevFormData) => {
@@ -34,6 +36,10 @@ function MealPlanGenerator() {
         [name]: value,
       }));
     } else if (type === 'text') {
+      if (value === "") {
+        textValue = null
+      }
+      setIsValid(regex.test(textValue));
       // Handle text inputs (e.g., other intolerances, food to include)
       setFormData((prevFormData) => ({
         ...prevFormData,
@@ -43,8 +49,7 @@ function MealPlanGenerator() {
 
     // console.log('formData object is ', formData)
 
-    const regex = /^(\w+\s*,\s*)*\w+$/;
-    setIsValid(regex.test(value));
+    
   }
 
   const handleButtonClick = () => {
