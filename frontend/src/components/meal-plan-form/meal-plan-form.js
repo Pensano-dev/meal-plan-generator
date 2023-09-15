@@ -1,5 +1,6 @@
 import * as React from "react";
-function MealPlanForm({ onChange, onSubmit, isValid, clickCount }) {
+
+function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
   // inline CSS for now but may need to move this out to a separate file if we have more later
   const requiredStyle = {
     color: "red",
@@ -102,9 +103,15 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount }) {
         />
 
         <p>Please submit when ready</p>
-        <button type="submit" onClick={onSubmit}>
-          Generate Meal Plan ({clickCount} generated)
+        {isLoading ?
+        <button type="submit" className="loading-button" disabled>
+        Loading
+        </button> :
+        <button type="submit" className="generate-plan-button" onClick={onSubmit}>
+        Generate Meal Plan ({clickCount} generated)
         </button>
+        }
+
       </form>
     </>
   );

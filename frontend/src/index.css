@@ -1,0 +1,9 @@
+body {
+  color: blue;
+}
+
+.loading-button {
+  pointer-events: none;
+  cursor: not-allowed;
+  color: red;
+}
