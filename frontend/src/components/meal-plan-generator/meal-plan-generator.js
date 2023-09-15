@@ -44,7 +44,7 @@ function MealPlanGenerator() {
       }));
     }
 
-    console.log('formData object is ', formData)
+    // console.log('formData object is ', formData)
 
     const regex = /^(\w+\s*,\s*)*\w+$/;
     setIsValid(regex.test(value));
@@ -97,13 +97,6 @@ function MealPlanGenerator() {
     <div>
       {/* <h1>Create your Meal Plan</h1> */}
       <MealPlanForm onChange={handleFormChange} onSubmit={handleFormSubmit} isValid={isValid} clickCount={clickCount} isLoading={isLoading} />
-      <>
-        <p>{formData.age}</p>
-        <p>{formData.allergies}</p>
-        <p>{formData.intolerances}</p>
-        <p>{formData.diets}</p>
-        <p>{formData.otherfood}</p>
-      </>
       <p className='gpt-response'>{gptResponse}</p>
     </div>
   );
