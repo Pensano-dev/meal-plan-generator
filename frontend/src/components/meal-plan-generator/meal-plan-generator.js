@@ -4,7 +4,10 @@ import MealPlanForm from '../meal-plan-form/meal-plan-form';
 function MealPlanGenerator() {
   const [formData, setFormData] = useState({
     age: "",
-
+    allergies: [],
+    intolerances: "",
+    diets: [],
+    otherfood: ""
   });
   const [isValid, setIsValid] = useState(true);
   const [clickCount, setClickCount] = useState(0);
@@ -12,11 +15,36 @@ function MealPlanGenerator() {
   const [isLoading, setIsLoading] = useState(false);
 
   function handleFormChange(event) {
-    const { id, value } = event.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [id]: value,
-    }));
+    const { id, name, value, type, checked } = event.target;
+    // console.log('event.target is ', event.
+
+
+    if (type === 'checkbox') {
+      // Handle checkboxes (e.g., allergies and diets)
+      setFormData((prevFormData) => {
+        const updatedData = { ...prevFormData };
+        if (checked) {
+          updatedData[name] = [...updatedData[name], value];
+        } else {
+          updatedData[name] = updatedData[name].filter((item) => item !== value);
+        }
+        return updatedData;
+      });
+    } else if (type === 'radio') {
+      // Handle radio buttons (e.g., age group)
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: value,
+      }));
+    } else if (type === 'text') {
+      // Handle text inputs (e.g., other intolerances, food to include)
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: value,
+      }));
+    }
+
+    console.log('formData object is ', formData)
 
     const regex = /^(\w+\s*,\s*)*\w+$/;
     setIsValid(regex.test(value));
@@ -69,6 +97,13 @@ function MealPlanGenerator() {
     <div>
       {/* <h1>Create your Meal Plan</h1> */}
       <MealPlanForm onChange={handleFormChange} onSubmit={handleFormSubmit} isValid={isValid} clickCount={clickCount} isLoading={isLoading} />
+      <>
+        <p>{formData.age}</p>
+        <p>{formData.allergies}</p>
+        <p>{formData.intolerances}</p>
+        <p>{formData.diets}</p>
+        <p>{formData.otherfood}</p>
+      </>
       <p className='gpt-response'>{gptResponse}</p>
     </div>
   );

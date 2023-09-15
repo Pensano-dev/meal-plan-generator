@@ -13,7 +13,7 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
   };
 
   const foodAllergies = ["Eggs", "Fish", "Gluten", "Milk", "Peanuts", "Shellfish", "Soy", "Tree nuts"];
-  const ageGroups = ["6-24", "3-12"];
+  const ageGroups = ["6-24", "3-12", "12+"];
   const currentDiets = ["Mixed food diet (animal and vegetable sources)", "Pescetarian", "Low carb", "Vegan", "Vegetarian", "Paleo"];
   const currentDietValues = ["mixed", "pescatarian", "starch", "vegan", "vegetarian", "paleo"];
 
@@ -46,12 +46,6 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
           );
         })}
 
-            <div>
-              <input type="radio" id="age3" name="age"
-                value="12+" required onChange={onChange} checked />
-              <label htmlFor="age">12+ years old</label>
-            </div>
-
         <p>Any food allergies or intolerances?</p>
 
         {foodAllergies.map((allergy, index) => {
@@ -59,7 +53,8 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
             <div key={index}>
               <input
                 type="checkbox"
-                id="allergies"
+                className="allergies"
+                name="allergies"
                 value={allergy.toLocaleLowerCase()}
                 onChange={onChange}
               />
@@ -71,8 +66,8 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
         <p>Please input any other intolerances</p>
         <input
           type="text"
-          id="other-food-intolerances"
-          name="other-food-intolerance"
+          className="other-food-intolerances"
+          name="intolerances"
           placeholder="Enter foods here separated by commas"
           onChange={onChange}
           style={{ border: isValid ? "" : "1px solid red" }}
@@ -85,24 +80,25 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
             <div key={index}>
               <input
                 type="checkbox"
-                id="diet"
+                className="diets"
+                name="diets"
                 value={currentDietValues[index]}
                 onChange={onChange}
               />
-              <label htmlFor="diet">{diet}</label>
+              <label htmlFor="diets">{diet}</label>
             </div>
           )
         }
         )}
 
         <p>
-          Are there any foods which you want the mealplan to include? (separated
+          Are there any foods which you want the meal plan to include? (separated
           by comma ",")
         </p>
         <input
           type="text"
           id="other-food-include"
-          name="other-food-include"
+          name="otherfood"
           placeholder="Enter foods here separated by commas"
           onChange={onChange}
           style={{ border: isValid ? "" : "1px solid red" }}
