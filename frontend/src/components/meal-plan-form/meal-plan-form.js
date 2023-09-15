@@ -13,7 +13,7 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
   };
 
   const foodAllergies = ["Eggs", "Fish", "Gluten", "Milk", "Peanuts", "Shellfish", "Soy", "Tree nuts"];
-  const ageGroups = ["6-24", "3-12", "12+"];
+  const ageGroups = ["6-24", "3-12"];
   const currentDiets = ["Mixed food diet (animal and vegetable sources)", "Pescetarian", "Low carb", "Vegan", "Vegetarian", "Paleo"];
   const currentDietValues = ["mixed", "pescatarian", "starch", "vegan", "vegetarian", "paleo"];
 
@@ -45,6 +45,12 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
             </div>
           );
         })}
+
+            <div>
+              <input type="radio" id="age3" name="age"
+                value="12+" required onChange={onChange} checked />
+              <label htmlFor="age">12+ years old</label>
+            </div>
 
         <p>Any food allergies or intolerances?</p>
 

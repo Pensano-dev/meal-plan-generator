@@ -2,7 +2,10 @@ import { useState } from 'react';
 import MealPlanForm from '../meal-plan-form/meal-plan-form';
 
 function MealPlanGenerator() {
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    age: "",
+
+  });
   const [isValid, setIsValid] = useState(true);
   const [clickCount, setClickCount] = useState(0);
   const [gptResponse, setGptResponse] = useState("");
