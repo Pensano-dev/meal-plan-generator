@@ -18,7 +18,7 @@ function MealPlanGenerator() {
   function handleFormChange(event) { // onChange in MealPlanForm
     const regex = /^(\w+\s*,\s*)*\w+$/;
     const { name, value, type, checked } = event.target;
-    console.log('value is ', value)
+    console.log(name, 'value is', value)
     let textValue = value;
     if (type === 'checkbox') {
       // Handle checkboxes (e.g., allergies and diets)

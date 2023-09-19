@@ -4,6 +4,7 @@ import {
   foodAllergies,
   foodAllergyIcons,
   ageGroups,
+  ageGroupNames,
   currentDiets,
   currentDietValues,
 } from './lists';
@@ -11,9 +12,9 @@ import {
 function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
   return (
     <div className='whole-form-component'>
-      <h1 className="form-title">Welcome to the 7-Day Meal Plan Generator</h1>
-      <div className="form-intro">
-        <p>This program will take into account:</p>
+      <h1 id="form-title">Welcome to the 7-Day Meal Plan Generator</h1>
+      <div className="grey-panel form-intro">
+        <h3>This program will take into account:</h3>
         <p>
           • age group
           <br />
@@ -23,31 +24,37 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
         </p>  
       </div>
       <h2>Let's Get Started!</h2>
-      <p>Choose your options:</p>
+      <h3 className='grey-panel'>Choose your options:</h3>
       <form>
+        <h1>01</h1>
         <div className='container'>
-          <p>Which age group is your meal plan for?</p>
+          <h3>Which age group is your meal plan for?</h3>
           <p className='required'>*</p>
         </div>
+        <div className="age-selector">
         {ageGroups.map((age, index) => {
           return (
-            <div key={index}>
+            <div key={index} className='age-panel grey-panel'>
               <input
                 type='radio'
                 id={`age${index}`}
+                className='age-checkbox'
                 name='age'
                 value={age}
                 required
                 onChange={onChange}
               />
-              <label htmlFor='age'>
-                {age} {age === '6-24' ? 'months' : 'years old'}
+              <label htmlFor={`age${index}`} className='age-label'>
+                <h3>{ageGroupNames[index]}</h3>
+                <p>{age} {age === '6-24' ? 'months' : 'years old'}</p>
               </label>
             </div>
           );
         })}
+        </div>
 
-        <p>Any food allergies or intolerances?</p>
+        <h1>02</h1>
+        <h3 id='allergies-title'>Any food allergies or intolerances?</h3>
         <div className='allergy-selection'>
           {foodAllergies.map((allergy, index) => {
             return (
@@ -55,7 +62,7 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
                 <input
                   id={`allergy-${index}`}
                   type='checkbox'
-                  className='allergies'
+                  className='allergy-checkbox'
                   name='allergies'
                   value={allergy.toLocaleLowerCase()}
                   onChange={onChange}
