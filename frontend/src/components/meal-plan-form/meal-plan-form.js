@@ -10,17 +10,18 @@ import {
 
 function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
   return (
-    <>
-      <h1>Welcome to the 7-Day Meal Plan Generator</h1>
-
-      <p>This program will take into account:</p>
-      <p>
-        • age group
-        <br />
-        • food allergies and/or intolerances
-        <br />• having the three food groups at every meal to support blood
-        sugar balance
-      </p>
+    <div className='whole-form-component'>
+      <h1 className="form-title">Welcome to the 7-Day Meal Plan Generator</h1>
+      <div className="form-intro">
+        <p>This program will take into account:</p>
+        <p>
+          • age group
+          <br />
+          • food allergies and/or intolerances
+          <br />• having the three food groups at every meal to support blood
+          sugar balance
+        </p>  
+      </div>
       <h2>Let's Get Started!</h2>
       <p>Choose your options:</p>
       <form>
@@ -122,7 +123,7 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
           </button>
         )}
       </form>
-    </>
+    </div>
   );
 }
 
