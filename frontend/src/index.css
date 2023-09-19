@@ -1,5 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&family=Poppins:wght@400;700&family=Raleway:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-family: 'Raleway', sans-serif;
+}
+
 .loading-button {
   pointer-events: none;
   cursor: not-allowed;
   color: rgb(83, 83, 83);
 }
+
+
