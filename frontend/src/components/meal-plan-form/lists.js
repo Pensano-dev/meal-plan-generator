@@ -35,6 +35,8 @@ export const ageGroups = ["6-24", "3-12", "12+"];
 
 export const ageGroupNames = ["Infant", "Child", "Adult"];
   
-export const currentDiets = ["Mixed food diet (animal and vegetable sources)", "Pescetarian", "Low carb", "Vegan", "Vegetarian", "Paleo"];
+export const currentDiets = ["Mixed food diet", "Pescetarian", "Low carb", "Vegan", "Vegetarian", "Paleo"];
+  
+// export const currentDiets = ["Mixed food diet (animal and vegetable sources)", "Pescetarian", "Low carb", "Vegan", "Vegetarian", "Paleo"];
   
 export const currentDietValues = ["mixed", "pescatarian", "starch", "vegan", "vegetarian", "paleo"];

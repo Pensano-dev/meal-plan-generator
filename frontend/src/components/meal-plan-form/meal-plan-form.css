@@ -60,7 +60,7 @@ h2 {
   border: 1px solid var(--orange-banner-border);
   border-radius: 30px;
   padding: 15px 25px;
-  margin: 15px 0 5px;
+  margin: 15px 0 -20px;
 }
 
 .required {
@@ -193,6 +193,62 @@ input[type='text'] {
   border: 1px solid var(--text-grey);
   margin: 10px 0;
   font-size: 1.1rem;
+}
+
+/* DIET SECTION */
+.diet-section {
+  margin: 20px 0 60px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.diet-panel {
+  flex: 1 1 30%;
+  margin: 10px;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+}
+
+.diet-panel label {
+  flex-grow: 1;
+}
+
+.diet-panel label h3 {
+  font-weight: 500;
+}
+
+.diet-checkbox {
+  display: none;
+}
+
+.diet-label::before {
+  content: '';
+  width: 0;
+  height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+}
+
+.diet-checkbox:checked + .diet-label::before {
+  content: '✓';
+  font-size: 2.2rem;
+  color: var(--checked-green);
+  border: 1px solid var(--checked-green-border);
+  background-color: var(--checked-green-background);
+  transform: rotate(12deg);
+  position: absolute;
+  left: -7%;
+  top: 10%;
+  width: 40px;
+  height: 40px;
+}
+
+#other-food-include {
+  margin-top: 20px;
 }
 
 /* FORM BOTTOM */

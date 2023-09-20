@@ -88,26 +88,32 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
 
         <h1>03</h1>
         <h3>Please tick which boxes relate to the person's current diet:</h3>
-
-        {currentDiets.map((diet, index) => {
-          return (
-            <div key={index}>
-              <input
-                type='checkbox'
-                className='diets'
-                name='diets'
-                value={currentDietValues[index]}
-                onChange={onChange}
-              />
-              <label htmlFor='diets'>{diet}</label>
-            </div>
-          );
-        })}
+        <div className="diet-section">
+          {currentDiets.map((diet, index) => {
+            return (
+              <div key={index} className='diet-panel grey-panel'>
+                <input
+                  id={`diet-${index}`}
+                  type='checkbox'
+                  className='diet-checkbox'
+                  name='diets'
+                  value={currentDietValues[index]}
+                  onChange={onChange}
+                />
+                <label htmlFor={`diet-${index}`} className='diet-label'>
+                  <h3>{diet}</h3>
+                </label>
+              </div>
+            );
+          })}
+        </div>
 
         <h3>
           Are there any foods which you want the meal plan to include?
-          (separated by comma ",")
         </h3>
+        <p>
+          (separated by commas)
+        </p>
         <input
           type='text'
           id='other-food-include'
