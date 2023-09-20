@@ -24,7 +24,7 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
         </p>  
       </div>
       <h2>Let's Get Started!</h2>
-      <h3 className='grey-panel'>Choose your options:</h3>
+      {/* <h3 className='grey-panel'>Choose your options:</h3> */}
       <form>
         <h1>01</h1>
         <div className='container'>
@@ -76,7 +76,7 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
           })}
         </div>
 
-        <p>Please input any other intolerances</p>
+        <h3>Please input any other intolerances</h3>
         <input
           type='text'
           className='other-food-intolerances'
@@ -86,7 +86,8 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
           style={{ border: isValid ? '' : '1px solid red' }}
         />
 
-        <p>Please tick which boxes relate to the person's current diet:</p>
+        <h1>03</h1>
+        <h3>Please tick which boxes relate to the person's current diet:</h3>
 
         {currentDiets.map((diet, index) => {
           return (

@@ -1,6 +1,9 @@
 :root {
   --panel-grey: rgb(223, 233, 230);
+  --panel-grey-border: rgb(173, 183, 180);
   --text-grey: rgb(89, 89, 89);
+  --allergy-icons: rgb(157, 183, 175);
+  --allergy-icons-border: rgb(74, 84, 81);
 }
 
 .whole-form-component {
@@ -13,7 +16,7 @@
 
 #form-title {
   text-align: center;
-  margin: 35px auto 20px;
+  margin: 35px auto 30px;
   font-size: 1.8rem;
 }
 
@@ -22,6 +25,7 @@
   padding: 25px 35px;
   border-radius: 10px;
   width: 100%;
+  border: 1px solid var(--panel-grey-border);
 }
 
 .form-intro {
@@ -42,12 +46,14 @@ h1 {
   margin-top: 15px;
 }
 
-h2 {
+/* Let's Get Started */
+h2 { 
   display: inline-block; 
   background-color: rgb(249, 194, 28);
+  border: 1px solid rgb(226, 170, 2);
   border-radius: 30px;
   padding: 15px 25px; 
-  margin: 0 0 25px;
+  margin: 15px 0 5px;
 }
 
 
@@ -80,14 +86,6 @@ h2 {
   display: none;
 }
 
-/* .age-label {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  margin-bottom: 20px;
-} */
-
 /* Radio button icon */
 .age-label::before {
   content: '';
@@ -116,31 +114,6 @@ h2 {
   transform: rotate(12deg);
   
 }
-
-/* .age-label::before {
-  content: '';
-  width: 0;
-  height: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50px;
-  position: relative;
-} */
-
-/* .age-checkbox:checked + .age-label::before {
-  content: '✓';
-  font-size: 2.2rem;
-  color: rgb(6, 114, 7);
-  border: 1px solid rgba(0, 83, 1, 1);
-  background-color: rgba(211, 249, 107, 0.85);
-  transform: rotate(12deg);
-  position: absolute;
-  left: 8%;
-  top: -5%;
-  width: 40px;
-  height: 40px;
-} */
 
 /* ALLERGY SELECTION */
 #allergies-title {
@@ -206,6 +179,13 @@ h2 {
   height: 40px;
 }
 
-label {
-  text-align: center;
+/* OTHER INTOLERANCES */
+
+input[type="text"] {
+  width: 100%;
+  padding: 7px 13px;
+  border-radius: 5px;
+  border: 1px solid rgb(173, 183, 180);
+  margin: 10px 0;
+  font-size: 1.1rem;
 }

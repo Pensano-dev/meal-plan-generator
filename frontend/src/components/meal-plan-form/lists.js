@@ -3,16 +3,19 @@ import { EggIcon, FishIcon, MilkIcon, PeanutIcon, SoyaIcon, MolluscIcon, NutsIco
 export const foodAllergies = ["Eggs", "Fish", "Gluten", "Milk", "Peanuts", "Shellfish", "Soy", "Tree nuts"];
 
 const size = 100;
+const iconColor = "rgb(157, 183, 175)";
+const radius = "50px";
+const border = "1px solid rgb(74, 84, 81)"
 
 export const foodAllergyIcons = [
-  <EggIcon width={size} height={size} />,
-  <FishIcon width={size} height={size} />,
-  <GlutenIcon width={size} height={size} />,
-  <MilkIcon width={size} height={size} />,
-  <PeanutIcon width={size} height={size} />,
-  <MolluscIcon width={size} height={size} />,
-  <SoyaIcon width={size} height={size} />,
-  <NutsIcon width={size} height={size} />
+  <EggIcon width={size} height={size} outerColor={iconColor} wrapperStyle={{ borderRadius: radius, border: border}} />,
+  <FishIcon width={size} height={size} outerColor={iconColor} wrapperStyle={{ borderRadius: radius, border: border}} />,
+  <GlutenIcon width={size} height={size} outerColor={iconColor} wrapperStyle={{ borderRadius: radius, border: border}} />,
+  <MilkIcon width={size} height={size} outerColor={iconColor} wrapperStyle={{ borderRadius: radius, border: border}} />,
+  <PeanutIcon width={size} height={size} outerColor={iconColor} wrapperStyle={{ borderRadius: radius, border: border}} />,
+  <MolluscIcon width={size} height={size} outerColor={iconColor} wrapperStyle={{ borderRadius: radius, border: border}} />,
+  <SoyaIcon width={size} height={size} outerColor={iconColor} wrapperStyle={{ borderRadius: radius, border: border}} />,
+  <NutsIcon width={size} height={size} outerColor={iconColor} wrapperStyle={{ borderRadius: radius, border: border}} />
 ];
   
 export const ageGroups = ["6-24", "3-12", "12+"];
