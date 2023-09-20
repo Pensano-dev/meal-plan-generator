@@ -4,6 +4,11 @@
   --text-grey: rgb(89, 89, 89);
   --allergy-icons: rgb(157, 183, 175);
   --allergy-icons-border: rgb(74, 84, 81);
+  --orange-banner: rgb(249, 194, 28);
+  --orange-banner-border: rgb(200, 153, 9);
+  --checked-green: rgb(6, 114, 7);
+  --checked-green-background: rgba(211, 249, 107, 0.85);
+  --checked-green-border: rgba(0, 83, 1, 1);
 }
 
 .whole-form-component {
@@ -42,20 +47,20 @@
 
 h1 {
   font-size: 3.5rem;
-  font-family: "poppins", sans-serif;
+  font-weight: 600;
+  font-family: 'poppins', sans-serif;
   margin-top: 15px;
 }
 
 /* Let's Get Started */
-h2 { 
-  display: inline-block; 
-  background-color: rgb(249, 194, 28);
-  border: 1px solid rgb(226, 170, 2);
+h2 {
+  display: inline-block;
+  background-color: var(--orange-banner);
+  border: 1px solid var(--orange-banner-border);
   border-radius: 30px;
-  padding: 15px 25px; 
+  padding: 15px 25px;
   margin: 15px 0 5px;
 }
-
 
 .required {
   color: red;
@@ -89,8 +94,8 @@ h2 {
 /* Radio button icon */
 .age-label::before {
   content: '';
-  width: 20px; 
-  height: 20px; 
+  width: 20px;
+  height: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -105,14 +110,13 @@ h2 {
 /* Style when the radio button is checked */
 .age-checkbox:checked + .age-label::before {
   content: '✓';
-  width: 38px; 
-  height: 38px; 
+  width: 38px;
+  height: 38px;
   font-size: 2.2rem;
-  color: rgb(6, 114, 7);
-  border: 1px solid rgba(0, 83, 1, 1);
-  background-color: rgba(211, 249, 107, 0.85);
+  color: var(--checked-green);
+  border: 1px solid var(--checked-green-border);
+  background-color: var(--checked-green-background);
   transform: rotate(12deg);
-  
 }
 
 /* ALLERGY SELECTION */
@@ -168,9 +172,9 @@ h2 {
 .allergy-checkbox:checked + .allergy-label::before {
   content: '✓';
   font-size: 2.2rem;
-  color: rgb(6, 114, 7);
-  border: 1px solid rgba(0, 83, 1, 1);
-  background-color: rgba(211, 249, 107, 0.85);
+  color: var(--checked-green);
+  border: 1px solid var(--checked-green-border);
+  background-color: var(--checked-green-background);
   transform: rotate(12deg);
   position: absolute;
   left: 8%;
@@ -181,11 +185,30 @@ h2 {
 
 /* OTHER INTOLERANCES */
 
-input[type="text"] {
+input[type='text'] {
   width: 100%;
   padding: 7px 13px;
   border-radius: 5px;
-  border: 1px solid rgb(173, 183, 180);
+  border: 1px solid var(--text-grey);
   margin: 10px 0;
   font-size: 1.1rem;
+}
+
+/* FORM BOTTOM */
+.submit-section {
+  margin: 20px 0 0;
+}
+
+.generate-plan-button {
+  display: block;
+  margin: 30px auto;
+  padding: 15px 25px;
+  border-radius: 30px;
+  border: 2px solid var(--orange-banner-border);
+  background-color: var(--orange-banner);
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }

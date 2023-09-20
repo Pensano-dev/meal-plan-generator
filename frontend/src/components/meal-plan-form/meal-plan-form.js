@@ -104,10 +104,10 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
           );
         })}
 
-        <p>
+        <h3>
           Are there any foods which you want the meal plan to include?
           (separated by comma ",")
-        </p>
+        </h3>
         <input
           type='text'
           id='other-food-include'
@@ -117,7 +117,7 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
           style={{ border: isValid ? '' : '1px solid red' }}
         />
 
-        <p>Please submit when ready</p>
+        <h3 className="submit-section">Please submit when ready</h3>
         {isLoading ? (
           <button type='submit' className='loading-button' disabled>
             Loading
@@ -127,7 +127,8 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
             type='submit'
             className='generate-plan-button'
             onClick={onSubmit}>
-            Generate Meal Plan ({clickCount} generated)
+              Generate Meal Plan
+              {/* ({clickCount} generated) */}
           </button>
         )}
       </form>
