@@ -119,8 +119,8 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
 
         <h3 className="submit-section">Please submit when ready</h3>
         {isLoading ? (
-          <button type='submit' className='loading-button' disabled>
-            Loading
+          <button type='submit' className='generate-plan-button loading-button' disabled>
+            Loading...
           </button>
         ) : (
           <button

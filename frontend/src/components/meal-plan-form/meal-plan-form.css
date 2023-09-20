@@ -5,6 +5,7 @@
   --allergy-icons: rgb(157, 183, 175);
   --allergy-icons-border: rgb(74, 84, 81);
   --orange-banner: rgb(249, 194, 28);
+  --orange-banner-fade: rgba(249, 194, 28, 0.3);
   --orange-banner-border: rgb(200, 153, 9);
   --checked-green: rgb(6, 114, 7);
   --checked-green-background: rgba(211, 249, 107, 0.85);
@@ -211,4 +212,12 @@ input[type='text'] {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+}
+
+
+.loading-button {
+  pointer-events: none;
+  cursor: not-allowed;
+  color: rgb(83, 83, 83);
+  background-color: var(--orange-banner-fade);
 }
