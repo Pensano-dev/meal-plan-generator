@@ -31,10 +31,11 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
           <h3>Which age group is your meal plan for?</h3>
           <p className='required'>*</p>
         </div>
+
         <div className="age-selector">
         {ageGroups.map((age, index) => {
           return (
-            <div key={index} className='age-panel grey-panel'>
+            <label key={index} className='age-panel grey-panel'>
               <input
                 type='radio'
                 id={`age${index}`}
@@ -44,11 +45,11 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
                 required
                 onChange={onChange}
               />
-              <label htmlFor={`age${index}`} className='age-label'>
+              <div className='age-label'>
                 <h3>{ageGroupNames[index]}</h3>
                 <p>{age} {age === '6-24' ? 'months' : 'years old'}</p>
-              </label>
-            </div>
+              </div>
+            </label>
           );
         })}
         </div>
@@ -91,6 +92,25 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
         <div className="diet-section">
           {currentDiets.map((diet, index) => {
             return (
+              <label key={index} className='diet-panel grey-panel'>
+                <input
+                  id={`diet-${index}`}
+                  type='checkbox'
+                  className='diet-checkbox'
+                  name='diets'
+                  value={currentDietValues[index]}
+                  onChange={onChange}
+                />
+                <div className='diet-label'>
+                  <h3>{diet}</h3>
+                </div>
+              </label>
+            );
+          })}
+        </div>
+        {/* <div className="diet-section">
+          {currentDiets.map((diet, index) => {
+            return (
               <div key={index} className='diet-panel grey-panel'>
                 <input
                   id={`diet-${index}`}
@@ -106,7 +126,7 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
               </div>
             );
           })}
-        </div>
+        </div> */}
 
         <h3>
           Are there any foods which you want the meal plan to include?
