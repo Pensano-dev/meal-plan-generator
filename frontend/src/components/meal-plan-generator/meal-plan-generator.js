@@ -5,6 +5,7 @@ function MealPlanGenerator() {
   const [formData, setFormData] = useState({});
   const [isValid, setIsValid] = useState(true);
   const [clickCount, setClickCount] = useState(0);
+  const [gptResponse, setGptResponse] = useState("");
 
   function handleFormChange(event) {
     const { id, value } = event.target;
@@ -42,7 +43,8 @@ function MealPlanGenerator() {
       const data = await response.json();
 
       if (response.ok) {
-        console.log('Request was successful:', data);
+        console.log('Request was successful');
+        setGptResponse(await data["gptResponse"])
         handleButtonClick();
       } else {
         console.log('Request was unsuccessful:', data);
@@ -57,6 +59,7 @@ function MealPlanGenerator() {
     <div>
       {/* <h1>Create your Meal Plan</h1> */}
       <MealPlanForm onChange={handleFormChange} onSubmit={handleFormSubmit} isValid={isValid} clickCount={clickCount}/>
+      <p className='gpt-response'>{gptResponse}</p>
     </div>
   );
 }
