@@ -4,6 +4,7 @@ import MealPlanForm from '../meal-plan-form/meal-plan-form';
 function MealPlanGenerator() {
   const [formData, setFormData] = useState({});
   const [isValid, setIsValid] = useState(true);
+  const [clickCount, setClickCount] = useState(0);
 
   function handleFormChange(event) {
     const { id, value } = event.target;
@@ -15,6 +16,11 @@ function MealPlanGenerator() {
     const regex = /^(\w+\s*,\s*)*\w+$/;
     setIsValid(regex.test(value));
   }
+
+  const handleButtonClick = () => {
+    setClickCount(clickCount + 1);
+  };
+
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -37,6 +43,7 @@ function MealPlanGenerator() {
 
       if (response.ok) {
         console.log('Request was successful:', data);
+        handleButtonClick();
       } else {
         console.log('Request was unsuccessful:', data);
       }
@@ -49,7 +56,7 @@ function MealPlanGenerator() {
   return (
     <div>
       {/* <h1>Create your Meal Plan</h1> */}
-      <MealPlanForm onChange={handleFormChange} onSubmit={handleFormSubmit} isValid={isValid} />
+      <MealPlanForm onChange={handleFormChange} onSubmit={handleFormSubmit} isValid={isValid} clickCount={clickCount}/>
     </div>
   );
 }
