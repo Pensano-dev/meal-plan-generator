@@ -1,5 +1,6 @@
 import * as React from "react";
-function MealPlanForm({ onChange, onSubmit, isValid, clickCount }) {
+
+function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
   // inline CSS for now but may need to move this out to a separate file if we have more later
   const requiredStyle = {
     color: "red",
@@ -52,7 +53,8 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount }) {
             <div key={index}>
               <input
                 type="checkbox"
-                id="allergies"
+                className="allergies"
+                name="allergies"
                 value={allergy.toLocaleLowerCase()}
                 onChange={onChange}
               />
@@ -64,8 +66,8 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount }) {
         <p>Please input any other intolerances</p>
         <input
           type="text"
-          id="other-food-intolerances"
-          name="other-food-intolerance"
+          className="other-food-intolerances"
+          name="intolerances"
           placeholder="Enter foods here separated by commas"
           onChange={onChange}
           style={{ border: isValid ? "" : "1px solid red" }}
@@ -78,33 +80,40 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount }) {
             <div key={index}>
               <input
                 type="checkbox"
-                id="diet"
+                className="diets"
+                name="diets"
                 value={currentDietValues[index]}
                 onChange={onChange}
               />
-              <label htmlFor="diet">{diet}</label>
+              <label htmlFor="diets">{diet}</label>
             </div>
           )
         }
         )}
 
         <p>
-          Are there any foods which you want the mealplan to include? (separated
+          Are there any foods which you want the meal plan to include? (separated
           by comma ",")
         </p>
         <input
           type="text"
           id="other-food-include"
-          name="other-food-include"
+          name="otherfood"
           placeholder="Enter foods here separated by commas"
           onChange={onChange}
           style={{ border: isValid ? "" : "1px solid red" }}
         />
 
         <p>Please submit when ready</p>
-        <button type="submit" onClick={onSubmit}>
-          Generate Meal Plan ({clickCount} generated)
+        {isLoading ?
+        <button type="submit" className="loading-button" disabled>
+        Loading
+        </button> :
+        <button type="submit" className="generate-plan-button" onClick={onSubmit}>
+        Generate Meal Plan ({clickCount} generated)
         </button>
+        }
+
       </form>
     </>
   );

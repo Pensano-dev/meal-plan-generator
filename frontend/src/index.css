@@ -1,0 +1,5 @@
+.loading-button {
+  pointer-events: none;
+  cursor: not-allowed;
+  color: rgb(83, 83, 83);
+}
