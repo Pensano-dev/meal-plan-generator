@@ -1,75 +1,279 @@
-body, h1, h2, h3, p, ul, li, input, label, button {
-  margin: 0;
-  padding: 0;
-  border: none;
-  font-family: Arial, sans-serif;
-}
-.meal-plan-form {
-  /* Add background color, font styles, and other global styles here */
+:root {
+  --panel-grey: rgb(223, 233, 230);
+  --panel-grey-border: rgb(173, 183, 180);
+  --text-grey: rgb(89, 89, 89);
+  --allergy-icons: rgb(157, 183, 175);
+  --allergy-icons-border: rgb(74, 84, 81);
+  --orange-banner: rgb(249, 194, 28);
+  --orange-banner-fade: rgba(249, 194, 28, 0.3);
+  --orange-banner-border: rgb(200, 153, 9);
+  --checked-green: rgb(6, 114, 7);
+  --checked-green-background: rgba(211, 249, 107, 0.85);
+  --checked-green-border: rgba(0, 83, 1, 1);
 }
 
-ul {
-  list-style-type: none;
+.whole-form-component {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-li {
+#form-title {
+  text-align: center;
+  margin: 35px auto 30px;
+  font-size: 1.8rem;
+}
+
+.grey-panel {
+  background-color: var(--panel-grey);
+  padding: 25px 35px;
+  border-radius: 10px;
+  width: 100%;
+  border: 1px solid var(--panel-grey-border);
+}
+
+.form-intro {
+  margin-bottom: 25px;
+}
+
+.form-intro h3 {
+  margin-bottom: 15px;
+}
+
+.form-intro p {
+  color: var(--text-grey);
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-weight: 600;
+  font-family: 'poppins', sans-serif;
+  margin-top: 15px;
+}
+
+/* Let's Get Started */
+h2 {
   display: inline-block;
+  background-color: var(--orange-banner);
+  border: 1px solid var(--orange-banner-border);
+  border-radius: 30px;
+  padding: 15px 25px;
+  margin: 15px 0 -20px;
 }
 
-input[type="checkbox"][id^="cb"] {
-  display: none;
-}
-
-/* All labels container */
-label {
-  border: 1px solid #fff;
-  border-radius: 25px;
-  padding: 10px;
-  display: block;
-  position: relative;
-  margin: 10px;
-  cursor: pointer;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+.required {
+  color: red;
+  flex: 1;
+  margin-left: 5px;
+  font-size: 2rem;
 }
 
 .container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  /* Add other container styles here */
+  display: flex;
 }
 
-/* White */
-label::before {
-  background-color: white;
-  color: white;
-  content: " ";
-  display: block;
+/* AGE SELECTION */
+.age-selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.age-panel {
+  text-align: center;
+  margin: 0 15px;
+  position: relative;
+  cursor: pointer;
+}
+
+.age-checkbox {
+  display: none;
+}
+
+/* Radio button icon */
+.age-label::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
   position: absolute;
-  top: -5px;
-  left: -5px;
-  width: 25px;
-  height: 25px;
+  left: -10%;
+  top: 10%;
+}
+
+/* Style when the radio button is checked */
+.age-checkbox:checked + .age-label::before {
+  content: '✓';
+  width: 38px;
+  height: 38px;
+  font-size: 2.2rem;
+  color: var(--checked-green);
+  border: 1px solid var(--checked-green-border);
+  background-color: var(--checked-green-background);
+  transform: rotate(12deg);
+}
+
+/* ALLERGY SELECTION */
+#allergies-title {
+  margin-bottom: 30px;
+}
+
+/* standard checkbox OFF */
+.allergy-checkbox {
+  display: none;
+}
+
+.allergy-panel {
+  margin-left: 30px;
+}
+
+.allergy-selection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* custom checkboxes */
+.allergy-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  padding-left: 30px;
+  margin-bottom: 20px;
+}
+
+.allergy-label p {
+  margin-top: 10px;
+}
+
+/* custom checkbox icon */
+.allergy-label::before {
+  content: '';
+  width: 0;
+  height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  position: relative;
+}
+
+/* when the checkbox is checked */
+.allergy-checkbox:checked + .allergy-label::before {
+  content: '✓';
+  font-size: 2.2rem;
+  color: var(--checked-green);
+  border: 1px solid var(--checked-green-border);
+  background-color: var(--checked-green-background);
+  transform: rotate(12deg);
+  position: absolute;
+  left: 8%;
+  top: -5%;
+  width: 40px;
+  height: 40px;
+}
+
+/* OTHER INTOLERANCES */
+
+input[type='text'] {
+  width: 100%;
+  padding: 7px 13px;
+  border-radius: 5px;
+  border: 1px solid var(--text-grey);
+  margin: 10px 0;
+  font-size: 1.1rem;
+}
+
+/* DIET SECTION */
+.diet-section {
+  margin: 20px 0 60px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.diet-panel {
+  flex: 1 1 30%;
+  margin: 10px;
+  flex-direction: column;
   text-align: center;
-  line-height: 28px;
-  transition-duration: 0.4s;
-  transform: scale(0);
+  position: relative;
+  cursor: pointer;
 }
 
-/* Gray squared margin */
-:checked+label {
-  border-color: #ddd;
+.diet-panel label {
+  flex-grow: 1;
 }
 
-/* Lavender circle */
-:checked+label::before {
-  content: "✓";
-  background-color: #cea0e4;
-  transform: scale(1);
+.diet-panel label h3 {
+  font-weight: 500;
+}
+
+.diet-checkbox {
+  display: none;
+}
+
+.diet-label::before {
+  content: '';
+  width: 0;
+  height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+}
+
+.diet-checkbox:checked + .diet-label::before {
+  content: '✓';
+  font-size: 2.2rem;
+  color: var(--checked-green);
+  border: 1px solid var(--checked-green-border);
+  background-color: var(--checked-green-background);
+  transform: rotate(12deg);
+  position: absolute;
+  left: -7%;
+  top: 10%;
+  width: 40px;
+  height: 40px;
+}
+
+#other-food-include {
+  margin-top: 20px;
+}
+
+/* FORM BOTTOM */
+.submit-section {
+  margin: 20px 0 0;
+}
+
+.generate-plan-button {
+  display: block;
+  margin: 30px auto;
+  padding: 15px 25px;
+  border-radius: 30px;
+  border: 2px solid var(--orange-banner-border);
+  background-color: var(--orange-banner);
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+
+.loading-button {
+  pointer-events: none;
+  cursor: not-allowed;
+  color: rgb(83, 83, 83);
+  background-color: var(--orange-banner-fade);
 }

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+// import MealPlanForm from '../meal-plan-form/meal-plan-form';
 import MealPlanForm from '../meal-plan-form/meal-plan-form';
 
 function MealPlanGenerator() {
@@ -14,9 +15,10 @@ function MealPlanGenerator() {
   const [gptResponse, setGptResponse] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  function handleFormChange(event) {
+  function handleFormChange(event) { // onChange in MealPlanForm
     const regex = /^(\w+\s*,\s*)*\w+$/;
     const { name, value, type, checked } = event.target;
+    console.log(name, 'value is', value)
     let textValue = value;
     if (type === 'checkbox') {
       // Handle checkboxes (e.g., allergies and diets)
