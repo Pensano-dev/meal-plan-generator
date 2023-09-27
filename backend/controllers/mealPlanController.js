@@ -1,6 +1,6 @@
 const openai = require("../config/openaiConfig");
 
-const useOpenAiApi = false; // set to false to use fake data
+const useOpenAiApi = true; // set to false to use fake data
 
 let mealPlanController;
 
