@@ -2,15 +2,15 @@ import { useState } from 'react';
 import MealPlanForm from '../meal-plan-form/meal-plan-form';
 
 function MealPlanGenerator() {
-  const [formData, setFormData] = useState({
+  const theForm = {
     age: "",
     allergies: [],
     intolerances: "",
     diets: [],
     otherfood: ""
-  });
+  };
+  const [formData, setFormData] = useState(theForm);
   const [isValid, setIsValid] = useState(true);
-  // const [requiredQuestionsAnswered, setRequiredQuestionsAnswered] = useState(false);
   const [clickCount, setClickCount] = useState(0);
   const [gptResponse, setGptResponse] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -113,7 +113,13 @@ function MealPlanGenerator() {
   return (
     <div>
       {/* <h1>Create your Meal Plan</h1> */}
-      <MealPlanForm onChange={handleFormChange} onSubmit={handleFormSubmit} isValid={isValid} clickCount={clickCount} isLoading={isLoading} />
+      <MealPlanForm
+        onChange={handleFormChange}
+        onSubmit={handleFormSubmit}
+        isValid={isValid}
+        clickCount={clickCount}
+        isLoading={isLoading}
+      />
       <p className='gpt-response'>{gptResponse}</p>
     </div>
   );

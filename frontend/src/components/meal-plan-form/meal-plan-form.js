@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import './meal-plan-form.css';
 import {
   foodAllergies,
@@ -9,9 +10,16 @@ import {
   currentDietValues,
 } from './lists';
 
-// function validateInput
 
-function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
+
+function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading}) {
+
+  const [requiredQuestionsAnswered, setRequiredQuestionsAnswered] = useState(false);
+
+  const answered = (requiredQuestionsAnswered) => {
+    setRequiredQuestionsAnswered(!requiredQuestionsAnswered)
+  }
+
   return (
     <div className='whole-form-component'>
       <h1 id="form-title">Welcome to the 7-Day Meal Plan Generator</h1>
@@ -34,7 +42,7 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
           <p className='required'>*</p>
         </div>
 
-        <div className="age-selector">
+        <div className="age-selector" selected={requiredQuestionsAnswered}>
         {ageGroups.map((age, index) => {
           return (
             <label key={index} className='age-panel grey-panel'>
@@ -45,6 +53,7 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
                 name='age'
                 value={age}
                 required
+                onClick={answered}
                 onChange={onChange}
               />
               <div className='age-label'>
@@ -137,6 +146,7 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
         ) : (
           <button
             type='submit'
+            disabled={!requiredQuestionsAnswered}
             className='generate-plan-button'
             onClick={onSubmit}>
               Generate Meal Plan
