@@ -9,6 +9,8 @@ import {
   currentDietValues,
 } from './lists';
 
+// function validateInput
+
 function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
   return (
     <div className='whole-form-component'>
@@ -21,7 +23,7 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
           • food allergies and/or intolerances
           <br />• having the three food groups at every meal to support blood
           sugar balance
-        </p>  
+        </p>
       </div>
       <h2>Let's Get Started!</h2>
       {/* <h3 className='grey-panel'>Choose your options:</h3> */}
@@ -77,7 +79,7 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
           })}
         </div>
 
-        <h3>Please input any other intolerances</h3>
+        <h3>Please input any other intolerances:</h3>
         <input
           type='text'
           className='other-food-intolerances'
@@ -88,7 +90,10 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
         />
 
         <h1>03</h1>
-        <h3>Please tick which boxes relate to the person's current diet:</h3>
+        <div className='container'>
+          <h3>Please select the appropriate option if the person has a special diet:</h3>
+        </div>
+
         <div className="diet-section">
           {currentDiets.map((diet, index) => {
             return (
@@ -108,25 +113,6 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
             );
           })}
         </div>
-        {/* <div className="diet-section">
-          {currentDiets.map((diet, index) => {
-            return (
-              <div key={index} className='diet-panel grey-panel'>
-                <input
-                  id={`diet-${index}`}
-                  type='checkbox'
-                  className='diet-checkbox'
-                  name='diets'
-                  value={currentDietValues[index]}
-                  onChange={onChange}
-                />
-                <label htmlFor={`diet-${index}`} className='diet-label'>
-                  <h3>{diet}</h3>
-                </label>
-              </div>
-            );
-          })}
-        </div> */}
 
         <h3>
           Are there any foods which you want the meal plan to include?

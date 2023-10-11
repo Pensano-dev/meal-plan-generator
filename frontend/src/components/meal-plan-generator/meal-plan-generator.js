@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// import MealPlanForm from '../meal-plan-form/meal-plan-form';
 import MealPlanForm from '../meal-plan-form/meal-plan-form';
 
 function MealPlanGenerator() {
@@ -11,14 +10,18 @@ function MealPlanGenerator() {
     otherfood: ""
   });
   const [isValid, setIsValid] = useState(true);
+  // const [requiredQuestionsAnswered, setRequiredQuestionsAnswered] = useState(false);
   const [clickCount, setClickCount] = useState(0);
   const [gptResponse, setGptResponse] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   function handleFormChange(event) { // onChange in MealPlanForm
-    const regex = /^(\w+\s*,\s*)*\w+$/;
+    const regex = /^([A-Za-z]+\s*,\s*)*[A-Za-z]+$/;
+
     const { name, value, type, checked } = event.target;
-    console.log(name, 'value is', value)
+
+    // console.log(name, 'value is', value)
+
     let textValue = value;
     if (type === 'checkbox') {
       // Handle checkboxes (e.g., allergies and diets)
@@ -38,10 +41,23 @@ function MealPlanGenerator() {
         [name]: value,
       }));
     } else if (type === 'text') {
+      console.log('I am in text')
       if (value === "") {
         textValue = null
+      } else {
+        console.log('I am in else')
+        setIsValid(regex.test(textValue));
+        console.log(isValid)
+        console.log(regex.test(textValue));
+        console.log(textValue)
+
+        if(!isValid) {
+          console.log('alert!')
+          alert('Invalid input format. Please enter words separated by a comma and a space.');
+          return;
+        }
       }
-      setIsValid(regex.test(textValue));
+
       // Handle text inputs (e.g., other intolerances, food to include)
       setFormData((prevFormData) => ({
         ...prevFormData,
@@ -51,7 +67,7 @@ function MealPlanGenerator() {
 
     // console.log('formData object is ', formData)
 
-    
+
   }
 
   const handleButtonClick = () => {
@@ -62,10 +78,7 @@ function MealPlanGenerator() {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    if(!isValid) {
-      alert('Invalid input format. Please enter words separated by a comma and a space.');
-      return;
-    }
+
 
     try {
       setIsLoading(true);

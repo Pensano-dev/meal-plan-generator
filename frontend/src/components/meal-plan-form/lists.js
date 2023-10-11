@@ -30,13 +30,11 @@ export const foodAllergyIcons = [
 //   <SoyaIcon width={size} height={size} wrapperStyle={{ borderRadius: radius, border: border}} />,
 //   <NutsIcon width={size} height={size} wrapperStyle={{ borderRadius: radius, border: border}} />
 // ];
-  
+
 export const ageGroups = ["6-24", "3-12", "12+"];
 
 export const ageGroupNames = ["Infant", "Child", "Adult"];
-  
-export const currentDiets = ["Mixed food diet", "Pescetarian", "Low carb", "Vegan", "Vegetarian", "Paleo"];
-  
-// export const currentDiets = ["Mixed food diet (animal and vegetable sources)", "Pescetarian", "Low carb", "Vegan", "Vegetarian", "Paleo"];
-  
-export const currentDietValues = ["mixed", "pescatarian", "starch", "vegan", "vegetarian", "paleo"];
+
+export const currentDiets = ["Pescetarian", "Low carb", "Vegan", "Vegetarian", "Paleo"];
+
+export const currentDietValues = ["pescatarian", "starch", "vegan", "vegetarian", "paleo"];
