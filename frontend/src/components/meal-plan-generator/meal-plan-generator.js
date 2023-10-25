@@ -49,7 +49,7 @@ function MealPlanGenerator() {
       }));
     }
 
-    // console.log('formData object is ', formData)
+    console.log('formData object is ', formData)
 
     
   }
@@ -70,6 +70,7 @@ function MealPlanGenerator() {
     try {
       setIsLoading(true);
       console.log(isLoading);
+      console.log('formData being sent:', formData)
       const response = await fetch('http://localhost:8000/api/mealplan', { // when we deploy, we'll change this to the deployed backend URL saved as an ENV variable
         method: 'POST',
         headers: {

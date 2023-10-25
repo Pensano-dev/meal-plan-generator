@@ -42,6 +42,7 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
                 className='age-checkbox'
                 name='age'
                 value={age}
+                
                 required
                 onChange={onChange}
               />
