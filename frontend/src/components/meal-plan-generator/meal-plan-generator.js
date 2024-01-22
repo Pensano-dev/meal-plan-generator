@@ -1,6 +1,7 @@
 import { useState } from 'react';
 // import MealPlanForm from '../meal-plan-form/meal-plan-form';
 import MealPlanForm from '../meal-plan-form/meal-plan-form';
+import Mealplan from '../Mealplan/Mealplan';
 
 function MealPlanGenerator() {
   const [formData, setFormData] = useState({
@@ -12,7 +13,7 @@ function MealPlanGenerator() {
   });
   const [isValid, setIsValid] = useState(true);
   const [clickCount, setClickCount] = useState(0);
-  const [gptResponse, setGptResponse] = useState("");
+  const [mealplanData, setMealplanData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
   function handleFormChange(event) { // onChange in MealPlanForm
@@ -79,18 +80,22 @@ function MealPlanGenerator() {
       });
 
       const data = await response.json();
+      console.log('Raw data:', data.gptResponse)
+      const dataObject = await JSON.parse(data.gptResponse)
 
       console.log('data returned is:', data)
+      console.log('mealplan is:', dataObject)
 
       if (response.ok) {
         console.log('Request was successful');
-        setGptResponse(await data["gptResponse"])
+        setMealplanData(dataObject)
         handleButtonClick();
       } else {
         console.log('Request was unsuccessful:', data);
       }
 
     } catch (error) {
+      console.log('In catch block')
       console.error('Error:', error);
     }
     setIsLoading(false);
@@ -101,7 +106,9 @@ function MealPlanGenerator() {
     <div>
       {/* <h1>Create your Meal Plan</h1> */}
       <MealPlanForm onChange={handleFormChange} onSubmit={handleFormSubmit} isValid={isValid} clickCount={clickCount} isLoading={isLoading} />
-      <p className='gpt-response'>{gptResponse}</p>
+      {/* <p className='gpt-response'>{mealplanData}</p> */}
+      {mealplanData && <Mealplan />}
+
     </div>
   );
 }
