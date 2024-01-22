@@ -104,10 +104,8 @@ function MealPlanGenerator() {
 
   return (
     <div>
-      {/* <h1>Create your Meal Plan</h1> */}
       <MealPlanForm onChange={handleFormChange} onSubmit={handleFormSubmit} isValid={isValid} clickCount={clickCount} isLoading={isLoading} />
-      {/* <p className='gpt-response'>{mealplanData}</p> */}
-      {mealplanData && <Mealplan />}
+      {mealplanData.length && <Mealplan mealplanData={mealplanData} />}
 
     </div>
   );

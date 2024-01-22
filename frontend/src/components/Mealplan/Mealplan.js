@@ -1,9 +1,18 @@
 // import React from 'react'
 
-const Mealplan = () => {
+const Mealplan = ({ mealplanData }) => {
+  console.log('mealplan', mealplanData)
   return (
     <div>
-      <p>I'm a mealpan - this is just a placeholder</p>
+      {mealplanData.map((day, index) => (
+        <div key={index}>
+          <h2>Day {index + 1}</h2>
+          <p>Breakfast: {day.breakfast}</p>
+          <p>Lunch: {day.lunch}</p>
+          <p>Dinner: {day.dinner}</p>
+          <p>Snack: {day.snack}</p>
+        </div>
+      ))}
     </div>
   )
 }
