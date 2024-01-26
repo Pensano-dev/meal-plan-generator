@@ -1,5 +1,6 @@
 const openai = require("../config/openaiConfig");
 
+// const useOpenAiApi = false; // set to false to use fake data
 const useOpenAiApi = true; // set to false to use fake data
 
 let mealPlanController;
@@ -34,6 +35,14 @@ if (useOpenAiApi) {
             {
               role: "system",
               content: `Your response should only include the 7-day meal plan. Please don't respond with any other words.`,
+            },
+            {
+              role: "system",
+              content: `The response should be in the form of an array of 7 JavaScript objects.`,
+            },
+            {
+              role: "system",
+              content: `Each  JavaScript object in the response array represents one day's meals, e.g. {breakfast: 'Deatails of breakfast', lunch: 'details of lunch', dinner: 'details of dinner', snack: 'details of snack'}`,
             },
             {
               role: "system",
@@ -96,31 +105,53 @@ if (useOpenAiApi) {
   mealPlanController = {
     generateMealPlan: (req, res) => {
       const mealInputs = req.body;
-      const gptResponse = "this is fake data"
+      const gptResponse = JSON.stringify([
+        {
+          "breakfast": "Fake eggs with spinach and tomatoes, served with whole grain toast",
+          "lunch": "Fake green salad with grilled chicken, avocado, and a citrus vinaigrette",
+          "dinner": "Fake salmon with roasted vegetables and quinoa",
+          "snack": "Fake yogurt with berries and a sprinkle of chia seeds"
+        },
+        {
+          "breakfast": "Fake oatmeal topped with sliced banana, almonds, and a drizzle of honey",
+          "lunch": "Fake quinoa and black bean salad with roasted sweet potatoes and a lime-cilantro dressing",
+          "dinner": "Fake chicken breast with steamed broccoli and brown rice",
+          "snack": "Fake carrot sticks with hummus"
+        },
+        {
+          "breakfast": "Whole grain toast with almond butter and sliced strawberries",
+          "lunch": "Spinach and feta stuffed chicken breast with a side of roasted asparagus",
+          "dinner": "Turkey meatballs with zucchini noodles and marinara sauce",
+          "snack": "Hard-boiled eggs"
+        },
+        {
+          "breakfast": "Smoothie made with spinach, banana, almond milk, and a scoop of protein powder",
+          "lunch": "Quinoa and vegetable stir-fry with tofu",
+          "dinner": "Grilled shrimp skewers with quinoa salad",
+          "snack": "Mixed nuts"
+        },
+        {
+          "breakfast": "Greek yogurt with granola and mixed berries",
+          "lunch": "Lentil and vegetable soup with a side of whole grain bread",
+          "dinner": "Baked chicken breast with roasted Brussels sprouts and sweet potato fries",
+          "snack": "Apple slices with almond butter"
+        },
+        {
+          "breakfast": "Vegetable omelette with a side of whole grain toast",
+          "lunch": "Tuna salad lettuce wraps with cucumber and tomato",
+          "dinner": "Baked cod with quinoa and steamed asparagus",
+          "snack": "Celery sticks with peanut butter"
+        },
+        {
+          "breakfast": "Whole grain pancakes topped with mixed berries and a drizzle of maple syrup",
+          "lunch": "Grilled vegetable and goat cheese wrap with a side of mixed greens",
+          "dinner": "Stir-fried beef with broccoli and brown rice",
+          "snack": "Cottage cheese with sliced peaches"
+        }
+      ])
       res.status(200).json({ gptResponse: gptResponse })
     }
   };
 }
 
-
 module.exports = mealPlanController;
-
-// messages: [
-  //           {
-  //             role: "system",
-  //             content: `I am a nutritional therapist. You are an assistant that
-  //             helps me to generate 7-day meal plans for my clients. I want the meal
-  //             plan to be on a table, with the days of the week across the top and
-  //             the meals on the left-hand column. The meals should include breakfast,
-  //             lunch, dinner and one snack per day. I would like each meal suggestion
-  //             to include the three food groups of protein, carbohydrates and healthy
-  //             fats. Healthy fats include avocado, guacamole dip, salmon, trout,
-  //             mackerel, sardines, chia seeds, nuts, boiled eggs, olive oil, coconut
-  //             oil (for lightly frying), organic butter, ground flaxseeds, hummus,
-  //             and organic milk yoghurt. You should never include processed meats
-  //             (like ham, bacon and salami), biscuits, fries, fish fingers, cakes,
-  //             sweeteners, desserts, soft drinks, ice cream, alcoholic drinks and
-  //             chips. Please adapt the meal plan according to the client's
-  //             characteristics and preferences below.`,
-  //           },
-  //         ],
