@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mealPlanRoutes = require('./routes/mealPlanRoutes');
+const testRoutes = require('./routes/testRoutes')
 const rateLimit = require('express-rate-limit');
 
 const allowedOrigins = [
@@ -33,5 +34,7 @@ app.use('/api/mealplan', limiter)
 
 // Routes
 app.use('/api', mealPlanRoutes);
+
+app.use('/api', testRoutes);
 
 module.exports = app;
