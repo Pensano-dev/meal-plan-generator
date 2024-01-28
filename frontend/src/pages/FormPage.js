@@ -1,20 +1,14 @@
 import { useState } from 'react';
-// import MealPlanForm from '../meal-plan-form/meal-plan-form';
-import MealPlanForm from '../meal-plan-form/meal-plan-form';
-import Mealplan from '../Mealplan/Mealplan';
+import MealPlanForm from '../components/meal-plan-form/meal-plan-form';
+import Mealplan from '../components/Mealplan/Mealplan';
+import { useNavigate } from 'react-router-dom';
 
-function MealPlanGenerator() {
-  const [formData, setFormData] = useState({
-    age: "",
-    allergies: [],
-    intolerances: "",
-    diets: [],
-    otherfood: ""
-  });
+function FormPage({ formData, setFormData, mealplanData, setMealplanData}) {
   const [isValid, setIsValid] = useState(true);
   const [clickCount, setClickCount] = useState(0);
-  const [mealplanData, setMealplanData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   function handleFormChange(event) { // onChange in MealPlanForm
     const regex = /^(\w+\s*,\s*)*\w+$/;
@@ -49,16 +43,11 @@ function MealPlanGenerator() {
         [name]: value,
       }));
     }
-
-    // console.log('formData object is ', formData)
-
-    
   }
 
   const handleButtonClick = () => {
     setClickCount(clickCount + 1);
   };
-
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -90,6 +79,7 @@ function MealPlanGenerator() {
         console.log('Request was successful');
         setMealplanData(dataObject)
         handleButtonClick();
+        navigate('/mealplan');
       } else {
         console.log('Request was unsuccessful:', data);
       }
@@ -104,11 +94,10 @@ function MealPlanGenerator() {
 
   return (
     <div>
-      <MealPlanForm onChange={handleFormChange} onSubmit={handleFormSubmit} isValid={isValid} clickCount={clickCount} isLoading={isLoading} />
-      {mealplanData.length && <Mealplan mealplanData={mealplanData} />}
+      <MealPlanForm onChange={handleFormChange} onSubmit={handleFormSubmit} isValid={isValid} clickCount={clickCount} isLoading={isLoading} mealplanData={mealplanData} />
 
     </div>
   );
 }
 
-export default MealPlanGenerator;
+export default FormPage;
