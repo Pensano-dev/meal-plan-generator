@@ -83,7 +83,7 @@ function MealPlanGenerator() {
     try {
       setIsLoading(true);
       console.log(isLoading);
-      const response = await fetch('http://localhost:8000/api/mealplan', { // when we deploy, we'll change this to the deployed backend URL saved as an ENV variable
+      const response = await fetch('http://localhost:5555/api/mealplan', { // when we deploy, we'll change this to the deployed backend URL saved as an ENV variable
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
