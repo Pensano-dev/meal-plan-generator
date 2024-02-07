@@ -9,7 +9,7 @@ const Mealplan = ({ mealplanData }) => {
         <table className="table">
           <thead>
             <tr>
-              <th id='corner'></th>
+              <th id='corner'> </th>
               <th>Breakfast</th>
               <th>Lunch</th>
               <th>Dinner</th>
