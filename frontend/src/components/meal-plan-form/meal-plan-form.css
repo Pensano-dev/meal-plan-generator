@@ -4,6 +4,7 @@
   --text-grey: rgb(89, 89, 89);
   --allergy-icons: rgb(157, 183, 175);
   --allergy-icons-border: rgb(74, 84, 81);
+  --orange-banner-light: rgb(255, 238, 56);
   --orange-banner: rgb(249, 194, 28);
   --orange-banner-fade: rgba(249, 194, 28, 0.3);
   --orange-banner-border: rgb(200, 153, 9);
@@ -26,6 +27,10 @@
   font-size: 1.8rem;
 }
 
+#mealplan-page-btn {
+  margin-bottom: -10px;
+}
+
 .grey-panel {
   background-color: var(--panel-grey);
   padding: 25px 35px;
@@ -35,7 +40,7 @@
 }
 
 .form-intro {
-  margin-bottom: 25px;
+  margin-bottom: 5px;
 }
 
 .form-intro h3 {

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './meal-plan-form.css';
 import {
   foodAllergies,
@@ -8,8 +9,15 @@ import {
   currentDiets,
   currentDietValues,
 } from './lists';
+import Button from '../Button/Button';
 
-function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
+function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading, mealplanData }) {
+  const navigate = useNavigate();
+
+  const handleLinkToMealplanPage = () => {
+    navigate('/mealplan');
+  }
+
   return (
     <div className='whole-form-component'>
       <h1 id="form-title">Welcome to the 7-Day Meal Plan Generator</h1>
@@ -23,8 +31,7 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
           sugar balance
         </p>  
       </div>
-      <h2>Let's Get Started!</h2>
-      {/* <h3 className='grey-panel'>Choose your options:</h3> */}
+      {mealplanData.length ? <Button id="mealplan-page-btn" ariaLabel="link to meal plan form" onClick={handleLinkToMealplanPage} disabled={false}>Return to meal plan page</Button> : null}
       <form>
         <h1>01</h1>
         <div className='container'>
@@ -108,25 +115,6 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
             );
           })}
         </div>
-        {/* <div className="diet-section">
-          {currentDiets.map((diet, index) => {
-            return (
-              <div key={index} className='diet-panel grey-panel'>
-                <input
-                  id={`diet-${index}`}
-                  type='checkbox'
-                  className='diet-checkbox'
-                  name='diets'
-                  value={currentDietValues[index]}
-                  onChange={onChange}
-                />
-                <label htmlFor={`diet-${index}`} className='diet-label'>
-                  <h3>{diet}</h3>
-                </label>
-              </div>
-            );
-          })}
-        </div> */}
 
         <h3>
           Are there any foods which you want the meal plan to include?
@@ -153,8 +141,7 @@ function MealPlanForm({ onChange, onSubmit, isValid, clickCount, isLoading }) {
             type='submit'
             className='generate-plan-button'
             onClick={onSubmit}>
-              Generate Meal Plan
-              {/* ({clickCount} generated) */}
+              {`${mealplanData.length ? 'Regenerate' : 'Generate' } Meal Plan`}
           </button>
         )}
       </form>

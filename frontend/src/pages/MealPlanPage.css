@@ -1,0 +1,14 @@
+.whole-meal-plan-component {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 50px;
+}
+
+@media (max-width: 900px) {
+  .whole-meal-plan-component {
+    padding: 0 30px;
+  }
+}
