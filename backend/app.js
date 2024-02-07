@@ -8,7 +8,7 @@ const rateLimit = require('express-rate-limit');
 
 const allowedOrigins = [
   'http://localhost:3000', // Development frontend URL - this can also be set as a ENV variable and imported
-  // add production frontend URL here once deployed
+  'https://almost-meal-planner.onrender.com' // test deployed frontend
 ]
 
 const limiter = rateLimit({

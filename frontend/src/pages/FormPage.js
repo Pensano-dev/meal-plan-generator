@@ -2,6 +2,7 @@ import { useState } from 'react';
 import MealPlanForm from '../components/meal-plan-form/meal-plan-form';
 import Mealplan from '../components/Mealplan/Mealplan';
 import { useNavigate } from 'react-router-dom';
+import baseUrl from '../util/baseUrl';
 
 function FormPage({ formData, setFormData, mealplanData, setMealplanData}) {
   const [isValid, setIsValid] = useState(true);
@@ -60,7 +61,7 @@ function FormPage({ formData, setFormData, mealplanData, setMealplanData}) {
     try {
       setIsLoading(true);
       console.log(isLoading);
-      const response = await fetch('http://localhost:8000/api/mealplan', { // when we deploy, we'll change this to the deployed backend URL saved as an ENV variable
+      const response = await fetch(`${baseUrl}/api/mealplan`, { // when we deploy, we'll change this to the deployed backend URL saved as an ENV variable
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
